@@ -14,7 +14,7 @@
     </head>
     <body style = "text-align: center;">
 
-    <form action="${pageContext.request.contextPath}/com/obs/client/RegisterServlet" method="post">
+    <form action="${pageContext.request.contextPath}WEB-INF/classes/RegisterServlet" method="post">
         Username：<input type="text" name="username"><br/>
         Password：<input type="password" name="password"><br/>
         Tel：<input type="text" name="tel"><br/>
