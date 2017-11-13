@@ -13,6 +13,7 @@
         </title>
     </head>
     <body style = "text-align: left;">
+    <img src="${pageContext.request.contextPath}/images/ONLINEBOOKSTORE.JPG">
     <h3>please fill your information to join.</h3>
 
     <form action="${pageContext.request.contextPath}WEB-INF/classes/RegisterServlet" method="post">
