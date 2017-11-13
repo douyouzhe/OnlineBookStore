@@ -16,7 +16,7 @@
     <img src="${pageContext.request.contextPath}/images/ONLINEBOOKSTORE.JPG">
     <h3>please fill your information to join.</h3>
 
-    <form action="${pageContext.request.contextPath}WEB-INF/classes/RegisterServlet" method="post">
+    <form action="${pageContext.request.contextPath}/register" method="post">
 
         <table>
             <tr><td>Username：</td><td><input type="text" name="username"></td></tr>
