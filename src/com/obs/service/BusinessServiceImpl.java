@@ -10,6 +10,8 @@ public class BusinessServiceImpl implements BusinessService {
     private BookDao bookDao = DaoFactory.getInstance().createDao("dao.impl.BookDaoImpl", BookDao.class);
     private UserDao userDao = DaoFactory.getInstance().createDao("dao.impl.UserDaoImpl", UserDao.class);
     private OrderDao orderDao = DaoFactory.getInstance().createDao("dao.impl.OrderDaoImpl", OrderDao.class);
+
+
     @Override
     public void addCategory(Category category) {
 
