@@ -33,7 +33,6 @@ public class RegisterServlet extends HttpServlet{
 //            BusinessServiceImpl service = new BusinessServiceImpl();
 //            service.registerUser(user);
             request.setAttribute("message", "registration successful!");
-
             request.getRequestDispatcher("/message.jsp").forward(request, response);
 
         }catch(Exception e){
