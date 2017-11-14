@@ -2,6 +2,9 @@ package com.obs.service;
 
 import com.obs.domain.User;
 import com.obs.domain.Category;
+import dao.BookDao;
+import dao.CategoryDao;
+import dao.OrderDao;
 import dao.UserDao;
 import utils.DaoFactory;
 
