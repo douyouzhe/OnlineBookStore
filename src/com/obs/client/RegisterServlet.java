@@ -13,7 +13,10 @@ import com.obs.domain.User;
 
 public class RegisterServlet extends HttpServlet{
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+
+
+
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try{
             String username = request.getParameter("username");
@@ -40,11 +43,6 @@ public class RegisterServlet extends HttpServlet{
             request.setAttribute("message", "registration fail!");
             request.getRequestDispatcher("/message.jsp").forward(request, response);
         }
-    }
-
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        doGet(request, response);
     }
 
 }
