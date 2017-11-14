@@ -7,10 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
- test !!!!!!
-  </body>
+  <frameset row="17%,*">
+    <frame src="${pageContext.request.contextPath}/client/head.jsp" name="head">
+    <frame src="${pageContext.request.contextPath}/client/IndexServlet?method=getAll" name="body">
+    </frameset>
 </html>
