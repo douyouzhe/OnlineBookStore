@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//import com.obs.service.BusinessServiceImpl;
+import com.obs.service.BusinessServiceImpl;
 import utils.WebUtils;
 import com.obs.domain.User;
 
@@ -33,10 +33,9 @@ public class RegisterServlet extends HttpServlet{
             user.setPassword(password);
             user.setUsername(username);
 
-//            BusinessServiceImpl service = new BusinessServiceImpl();
-//            service.registerUser(user);
+            BusinessServiceImpl service = new BusinessServiceImpl();
+            service.registerUser(user);
             request.setAttribute("message", "registration successful!");
-
             request.getRequestDispatcher("/message.jsp").forward(request, response);
 
         }catch(Exception e){
