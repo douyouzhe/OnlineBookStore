@@ -3,15 +3,23 @@ package utils;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
+
 
 public class JdbcUtils {
 
     private static DataSource ds = null;
-    static{
-        ds = new ComboPooledDataSource();
+    static{// only run for one time
+        try {
+            Context initCtx = new InitialContext();
+            Context envCtx = (Context) initCtx.lookup("java:comp/env");
+            ds = (DataSource) envCtx.lookup("jdbc/ConnectionPool");
+        }catch(Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
     public static DataSource getDataSource(){
