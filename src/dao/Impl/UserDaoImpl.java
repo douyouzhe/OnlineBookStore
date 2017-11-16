@@ -15,9 +15,10 @@ public class UserDaoImpl implements UserDao {
         try
         {
             QueryRunner run =new QueryRunner(JdbcUtils.getDataSource());
-            String sql="insert into user(id,username,password,tel,email,address) values（'?','?','?','?','?','?')";
+            String sql="insert into user(id,username,password,tel,email,address) values(?,?,?,?,?,?)";
             Object[] params = {user.getId(), user.getUsername(), user.getPassword(), user.getTel(),user.getEmail(),user.getAddress()};
             run.update(sql, params);
+
         }catch(Exception ex)
         {
             throw new RuntimeException(ex);
