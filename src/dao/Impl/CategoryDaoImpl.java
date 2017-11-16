@@ -1,16 +1,16 @@
 
-package dao.impl;
+package dao.Impl;
 
-        import java.sql.SQLException;
-        import java.util.List;
+import java.sql.SQLException;
+import java.util.List;
 
-        import org.apache.commons.dbutils.QueryRunner;
-        import org.apache.commons.dbutils.handlers.BeanHandler;
-        import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 
-        import utils.JdbcUtils;
-        import dao.CategoryDao;
-        import com.obs.domain.Category;
+import utils.JdbcUtils;
+import dao.CategoryDao;
+import com.obs.domain.Category;
 
 public class CategoryDaoImpl implements CategoryDao {
 
@@ -38,7 +38,7 @@ public class CategoryDaoImpl implements CategoryDao {
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select * from category where id=?";
-            return (Category)runner.query(sql, id, new BeanHandler(Category.class));
+            return (Category)runner.query(sql, new BeanHandler(Category.class),id);
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException(e);

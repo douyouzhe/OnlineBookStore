@@ -39,4 +39,11 @@ public class BusinessServiceImpl implements BusinessService {
     public void registerUser(User user) {
         userDao.add(user);
     }
+
+
+    public User userLogin(String username, String password){
+        return userDao.find(username, password);
+
+    }
+
 }

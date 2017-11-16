@@ -1,10 +1,11 @@
-package dao;
+package dao.Impl;
 
 import com.obs.domain.Order;
+import dao.OrderDao;
 
 import java.util.List;
 
-public class OrderDaoImpl implements OrderDao{
+public class OrderDaoImpl implements OrderDao {
     @Override
     public void add(Order order) {
         

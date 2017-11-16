@@ -7,8 +7,29 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <frameset row="17%,*">
-    <frame src="${pageContext.request.contextPath}/client/head.jsp" name="head">
-    <frame src="${pageContext.request.contextPath}/client/IndexServlet?method=getAll" name="body">
-    </frameset>
+  <head>
+    <title>OBS</title>
+  </head>
+
+  <%--<frameset row="17%,*">--%>
+    <%--<frame src="${pageContext.request.contextPath}/client/head.jsp" name="head">--%>
+    <%--<frame src="${pageContext.request.contextPath}/client/IndexServlet?method=getAll" name="body">--%>
+    <%--</frameset>--%>
+
+  <body style = "text-align: left;">
+
+  <h3>Welcome! login if already a user</h3>
+
+  <form action="${pageContext.request.contextPath}/login" method="post">
+
+    <table>
+      <tr><td>Username：</td><td><input type="text" name="username"></td></tr>
+      <tr><td>Password：</td><td><input type="password" name="password"></td></tr>
+    </table>
+
+    <input type="submit" name="action" value="Login">
+    <input type="submit" name="action" value="New User">
+  </form>
+
+  </body>
 </html>

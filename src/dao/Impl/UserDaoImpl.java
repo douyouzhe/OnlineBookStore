@@ -13,7 +13,9 @@ public class UserDaoImpl implements UserDao {
     {
         try
         {
+            //System.out.println("before JdbcUtils.getDataSource(");
             QueryRunner run =new QueryRunner(JdbcUtils.getDataSource());
+            //System.out.println("after JdbcUtils.getDataSource(");
             String sql="insert into user(id,username,password,tel,email,address) values(?,?,?,?,?,?)";
             Object params[] = {user.getId(), user.getUsername(), user.getPassword(), user.getTel(),user.getEmail(),user.getAddress()};
             run.update(sql, params);
