@@ -10,7 +10,13 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style="text-align: center;">
+
+<h1>Online Book Store</h1>
+<br>
+<div>
+
+</div>
 
 </body>
 </html>

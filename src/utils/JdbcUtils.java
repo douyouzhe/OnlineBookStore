@@ -12,8 +12,10 @@ import javax.sql.DataSource;
 public class JdbcUtils {
 
     private static DataSource ds = null;
-    static{// only run for one time
+    // only run for one time
+    static{
         try {
+            //System.out.println("in static try");
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
             ds = (DataSource) envCtx.lookup("jdbc/ConnectionPool");
@@ -26,7 +28,9 @@ public class JdbcUtils {
         return ds;
     }
 
-    public static Connection getConnection() throws SQLException{
-        return ds.getConnection();
-    }
+
+// why this method is never used?????
+//    public static Connection getConnection() throws SQLException{
+//        return ds.getConnection();
+//    }
 }

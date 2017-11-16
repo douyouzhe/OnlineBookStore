@@ -7,16 +7,22 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import utils.JdbcUtils;
 
-import java.sql.Connection;
 
 public class UserDaoImpl implements UserDao {
     public void add(User user)
     {
         try
         {
+            //System.out.println("before JdbcUtils.getDataSource(");
             QueryRunner run =new QueryRunner(JdbcUtils.getDataSource());
+<<<<<<< HEAD
             String sql="insert into user(id,username,password,tel,email,address) values(?,?,?,?,?,?)";
             Object[] params = {user.getId(), user.getUsername(), user.getPassword(), user.getTel(),user.getEmail(),user.getAddress()};
+=======
+            //System.out.println("after JdbcUtils.getDataSource(");
+            String sql="insert into user(id,username,password,tel,email,address) values(?,?,?,?,?,?)";
+            Object params[] = {user.getId(), user.getUsername(), user.getPassword(), user.getTel(),user.getEmail(),user.getAddress()};
+>>>>>>> f4aed95213a026aaeec81409e6b5492e820bcb26
             run.update(sql, params);
 
         }catch(Exception ex)
