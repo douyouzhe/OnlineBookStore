@@ -7,7 +7,7 @@ create table book
 	 		image varchar(100),
 	  		description varchar(255),
 	  		category_id varchar(40)
-	  		-- constraint category_id_FK foreign key(category_id) references category(id)
+	  		constraint category_id_FK foreign key(category_id) references category(id)
 	   );
 create table user
 	   (

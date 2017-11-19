@@ -3,6 +3,7 @@ package utils;
 public class DaoFactory {
 
     private static final DaoFactory factory = new DaoFactory();
+
     private DaoFactory(){}
 
     public static DaoFactory getInstance(){

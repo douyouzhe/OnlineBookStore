@@ -17,6 +17,7 @@
     <%--</frameset>--%>
 
   <body style = "text-align: left;">
+  <img src="${pageContext.request.contextPath}/images/ONLINEBOOKSTORE.JPG">
   <h3>Welcome! login if already a user</h3>
 
   <form action="${pageContext.request.contextPath}/login" method="post">

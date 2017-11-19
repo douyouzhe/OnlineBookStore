@@ -20,13 +20,13 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public void add(Category category){
         try{
-            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "insert into category(id,name,description) values(?,?,?)";
-            Object params[] = {category.getId(), category.getName(), category.getDescription()};
-            runner.update(sql, params);
-        } catch(Exception e){
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            QueryRunner run= new QueryRunner(JdbcUtils.getDataSource());
+            String sql="insert int category(id,name,description) values(?,?,?)";
+            Object[] params={category.getId(),category.getName(),category.getDescription()};
+            run.update(sql,params);
+        }catch(Exception ex){
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
         }
     }
 
@@ -36,12 +36,12 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public Category find(String id){
         try {
-            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            QueryRunner run = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select * from category where id=?";
-            return (Category)runner.query(sql, new BeanHandler(Category.class),id);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            return (Category)run.query(sql, new BeanHandler(Category.class),id);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
         }
     }
 
@@ -51,12 +51,12 @@ public class CategoryDaoImpl implements CategoryDao {
     @Override
     public List<Category> getAll(){
         try {
-            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            QueryRunner run = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select * from category";
-            return (List<Category>)runner.query(sql, new BeanListHandler(Category.class));
-        } catch (SQLException e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
+            return (List<Category>)run.query(sql, new BeanListHandler(Category.class));
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
         }
     }
 

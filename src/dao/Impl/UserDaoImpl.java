@@ -15,14 +15,10 @@ public class UserDaoImpl implements UserDao {
         {
             //System.out.println("before JdbcUtils.getDataSource(");
             QueryRunner run =new QueryRunner(JdbcUtils.getDataSource());
-<<<<<<< HEAD
             String sql="insert into user(id,username,password,tel,email,address) values(?,?,?,?,?,?)";
             Object[] params = {user.getId(), user.getUsername(), user.getPassword(), user.getTel(),user.getEmail(),user.getAddress()};
-=======
             //System.out.println("after JdbcUtils.getDataSource(");
-            String sql="insert into user(id,username,password,tel,email,address) values(?,?,?,?,?,?)";
-            Object params[] = {user.getId(), user.getUsername(), user.getPassword(), user.getTel(),user.getEmail(),user.getAddress()};
->>>>>>> f4aed95213a026aaeec81409e6b5492e820bcb26
+
             run.update(sql, params);
 
         }catch(Exception ex)
@@ -51,10 +47,10 @@ public class UserDaoImpl implements UserDao {
     }
     public User find(String username, String password){
         try{
-            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            QueryRunner run = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select * from user where username=? and password=?";
             Object params[] = {username, password};
-            return (User)runner.query(sql,  new BeanHandler(User.class),params);
+            return (User)run.query(sql,  new BeanHandler(User.class),params);
         } catch(Exception ex){
             throw new RuntimeException(ex);
         }
