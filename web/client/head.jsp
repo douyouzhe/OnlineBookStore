@@ -14,9 +14,14 @@
             float:left;
             padding-left:100px;
         }
+        .center {
+
+            padding-left: 30px;
+        }
         .container {
+            margin:auto
             width: 100%;
-            height: 50%;
+            height: 200px;
             position: relative;
             padding: 1em;
             -webkit-filter: contrast(20);
@@ -36,7 +41,7 @@
             display: block;
             position: absolute;
             left: 50%;
-            top: 50%;
+            top: 100px;
             -webkit-transform: translate3d(-50%, -50%, 0);
             transform: translate3d(-50%, -50%, 0);
             letter-spacing: -2.2rem;
@@ -69,14 +74,13 @@
     <h1>C&D<br>BookSore<br>Welcome<br>${user.username}</h1>
 </div>
 
-<div  style="height:60px;background-color:black;color:white">
-    <a href="${pageContext.request.contextPath }/index.jsp" target="body">  <img src="${pageContext.request.contextPath }/icons/homePage.png"  class="post-thumb" height="40" weight="40" calss></a>
-    <br>
-    <br>
-    <hr width=90% size=3 color=white style="filter:progid:DXImageTransform.Microsoft.Glow(color=#5151A2,strength=10)">
-    <hr width=90% size=30 color=white style="filter:alpha(opacity=100,finishopacity=0,style=2)">
+<div  style="height:500px;background-color:black;color:white">
 
 
+    <img src="${pageContext.request.contextPath }/icons/dividingLine.png" width="1800" height="80" class="center" >
+    <a href="${pageContext.request.contextPath }/index.jsp" target="body">  <img src="${pageContext.request.contextPath }/icons/homePage.png"  class="post-thumb" height="50"></a>
+    <%--<hr width=90% size=3 color=white style="filter:progid:DXImageTransform.Microsoft.Glow(color=#5151A2,strength=10)">--%>
+    <%--<hr width=90% size=30 color=white style="filter:alpha(opacity=100,finishopacity=0,style=2)">--%>
     <%--<a href="${pageContext.request.contextPath }/client/listcart.jsp" target="body">查看购物车</a>--%>
     <%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
 
