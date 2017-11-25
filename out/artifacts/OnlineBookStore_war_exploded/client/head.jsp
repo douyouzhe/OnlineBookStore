@@ -81,8 +81,6 @@
     <a href="${pageContext.request.contextPath }/index.jsp" target="body">  <img src="${pageContext.request.contextPath }/icons/homePage.png"  class="post-thumb" height="50"></a>
     <%--<hr width=90% size=3 color=white style="filter:progid:DXImageTransform.Microsoft.Glow(color=#5151A2,strength=10)">--%>
     <%--<hr width=90% size=30 color=white style="filter:alpha(opacity=100,finishopacity=0,style=2)">--%>
-
-
     <%--<a href="${pageContext.request.contextPath }/client/listcart.jsp" target="body">查看购物车</a>--%>
     <%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
 

@@ -1,17 +1,31 @@
 package com.obs.service;
 
-import com.obs.domain.Category;
+import com.obs.domain.*;
+
 import java.util.List;
 
 public interface BusinessService {
 
-    /**添加分类**/
+
     void addCategory(Category category);
-
-    /**查找分类**/
     Category findCategory(String id);
-
-    /**得到所有分类**/
     List<Category> getAllCategory();
+
+    Book findBook(String id);
+    Page getBookPageData(String curPage);
+    Page getBookPageData(String curPage,String category_id);
+    void addBooktoCart(Cart cart, Book book);
+
+    User findUser(String id);
+    void registerUser(User user);
+    User userLogin(String username, String password);
+
+    void createOrder(Cart cart, User user);
+    List<Order> listOrder(String state);
+    Order findOrder(String orderId);
+    List<Order> listOrder(String userId,String state);
+    public void mailed(String orderId);
+    public List<Order> listOrderForUser(String userId);
+
 
 }

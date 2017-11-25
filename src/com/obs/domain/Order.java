@@ -6,18 +6,18 @@ import java.util.Set;
 
 public class Order {
 
-    private int id;
+    private String id;
     private Date orderTime;
     private double price;
     private boolean state;
     private User user;
     private Set<OrderItem> orderItems = new HashSet<OrderItem>();
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -11,7 +11,7 @@ import utils.JdbcUtils;
 import java.sql.SQLException;
 import java.util.List;
 
-public class bookImpl implements BookDao {
+public class BookDaoImpl implements BookDao {
     public void add(Book book){
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());

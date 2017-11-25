@@ -13,7 +13,7 @@ public class Page {
     private int endPage;
     private int startIndex;
 
-    private Page(int curPage,int totalRecord){
+    public Page(int curPage,int totalRecord){
         this.curPage=curPage;
         this.totalRecord=totalRecord;
         this.totalPage=(totalRecord+pageSize-1)/pageSize;
@@ -30,32 +30,32 @@ public class Page {
         return totalPage;
     }
 
-    public void setTotalpage(int totalpage) {
-        this.totalPage = totalpage;
+    public void setTotalpage(int totalPage) {
+        this.totalPage = totalPage;
     }
 
     public int getPagesize() {
         return pageSize;
     }
 
-    public void setPagesize(int pagesize) {
-        this.pageSize = pagesize;
+    public void setPagesize(int pageSize) {
+        this.pageSize = pageSize;
     }
 
     public int getTotalrecord() {
         return totalRecord;
     }
 
-    public void setTotalrecord(int totalrecord) {
-        this.totalRecord = totalrecord;
+    public void setTotalrecord(int totalRecord) {
+        this.totalRecord = totalRecord;
     }
 
     public int getPagenum() {
         return curPage;
     }
 
-    public void setPagenum(int pagenum) {
-        this.curPage = pagenum;
+    public void setPagenum(int curPage) {
+        this.curPage = curPage;
     }
 
     public List getList() {
@@ -70,8 +70,8 @@ public class Page {
         return startPage;
     }
 
-    public void setStartpage(int startpage) {
-        this.startPage = startpage;
+    public void setStartpage(int startPage) {
+        this.startPage = startPage;
     }
 
     public int getEndpage() {
@@ -79,14 +79,14 @@ public class Page {
     }
 
     public void setEndpage(int endpage) {
-        this.endPage = endpage;
+        this.endPage = endPage;
     }
 
     public int getStartindex() {
         return startIndex;
     }
 
-    public void setStartindex(int startindex) {
-        this.starIndex = startindex;
+    public void setStartIndex(int startIndex) {
+        this.startIndex = startIndex;
     }
 }

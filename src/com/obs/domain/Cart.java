@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class Cart {
 
-    private Map<Integer, CartItem> map = new HashMap<>();
+    private Map<String, CartItem> map = new HashMap<>();
     private double price;
 
     public void add(Book book){
@@ -20,16 +20,16 @@ public class Cart {
         }
     }
 
-    public Map<Integer, CartItem> getMap() {
+    public Map<String, CartItem> getMap() {
         return map;
     }
-    public void setMap(Map<Integer, CartItem> map) {
+    public void setMap(Map<String, CartItem> map) {
         this.map = map;
     }
     public double getPrice() {
 
         double totalprice = 0;
-        for(Map.Entry<Integer, CartItem> me : map.entrySet()){
+        for(Map.Entry<String, CartItem> me : map.entrySet()){
             CartItem item = me.getValue();
             totalprice = totalprice + item.getPrice();
         }

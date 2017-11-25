@@ -17,11 +17,11 @@ public class OrderDaoImpl implements OrderDao {
     public void add(Order order){
         try{
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            //1. 把order的基本信息保存到order表
+
             String sql = "insert into orders(id,ordertime,price,state,user_id) values(?,?,?,?,?)";
             Object params[] = {order.getId(), order.getOrderTime(), order.getPrice(), order.isState(), order.getUser().getId()};
             runner.update(sql, params);
-            //2. 把order中的订单项保存到orderitem表中
+
             Set<OrderItem> set = order.getOrderItems();
 
             for(OrderItem item : set){
@@ -41,10 +41,10 @@ public class OrderDaoImpl implements OrderDao {
     public Order find(String id){
         try{
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            //1.找出订单的基本信息
+
             String sql = "select * from orders where id=?";
             Order order = (Order) runner.query(sql, new BeanHandler(Order.class),id);
-            //2.找出订单中所有的订单项
+
             sql = "select * from orderitem where order_id=?";
             List<OrderItem> list =(List<OrderItem>) runner.query(sql,new BeanListHandler(OrderItem.class),id);
             for(OrderItem item : list){
@@ -52,9 +52,9 @@ public class OrderDaoImpl implements OrderDao {
                 Book book = (Book) runner.query(sql, new BeanHandler(Book.class), item.getId());
                 item.setBook(book);
             }
-            //把找出的订单项放进order
+
             order.getOrderItems().addAll(list);
-            //3.找出订单属于哪个用户
+
             sql = "select * from orders,user where orders.id=? and orders.user_id=user.id";
             User user = (User) runner.query(sql, new BeanHandler(User.class), order.getId());
             order.setUser(user);
@@ -69,7 +69,7 @@ public class OrderDaoImpl implements OrderDao {
     /* (non-Javadoc)
      * @see dao.impl.OrderDao#getAll(boolean)
      */
-    //后台获取所有订单
+
     public List<Order> getAll(boolean state){
         try{
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
@@ -88,7 +88,6 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    //前端页面中获取某个用户的所有订单
     public List<Order> getAll(boolean state, String userid){
         try{
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
@@ -129,7 +128,7 @@ public class OrderDaoImpl implements OrderDao {
     /* (non-Javadoc)
      * @see dao.impl.OrderDao#update(domain.Order)
      */
-    public void update(Order order){//这里只改变发货状态，实际中还可以改变购买数量等其他信息，可以再完善
+    public void update(Order order){
         try{
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "update orders set state=? where id=?";

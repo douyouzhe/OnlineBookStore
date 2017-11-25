@@ -1,39 +1,37 @@
 package com.obs.service;
 
-import com.obs.domain.Book;
-import com.obs.domain.Page;
-import com.obs.domain.User;
-import com.obs.domain.Category;
+import com.obs.domain.*;
 import dao.BookDao;
 import dao.CategoryDao;
 import dao.Impl.UserDaoImpl;
 import dao.OrderDao;
 import dao.UserDao;
 import utils.DaoFactory;
+import utils.WebUtils;
 
-import java.util.List;
+import java.util.*;
 
 
 public class BusinessServiceImpl implements BusinessService {
 
-    private CategoryDao categoryDao = DaoFactory.getInstance().createDao("dao.impl.CategoryDaoImpl", CategoryDao.class);
-    private BookDao bookDao = DaoFactory.getInstance().createDao("dao.impl.BookDaoImpl", BookDao.class);
-    private UserDao userDao = DaoFactory.getInstance().createDao("dao.impl.UserDaoImpl", UserDao.class);
-    private OrderDao orderDao = DaoFactory.getInstance().createDao("dao.impl.OrderDaoImpl", OrderDao.class);
+    private CategoryDao categoryDao = DaoFactory.getInstance().createDao("dao.Impl.CategoryDaoImpl", CategoryDao.class);
+    private BookDao bookDao = DaoFactory.getInstance().createDao("dao.Impl.BookDaoImpl", BookDao.class);
+    private UserDao userDao = DaoFactory.getInstance().createDao("dao.Impl.UserDaoImpl", UserDao.class);
+    private OrderDao orderDao = DaoFactory.getInstance().createDao("dao.Impl.OrderDaoImpl", OrderDao.class);
 
 
 
-    @Override
+
     public void addCategory(Category category) {
             categoryDao.add(category);
     }
 
-    @Override
+
     public Category findCategory(String id) {
         return categoryDao.find(id);
     }
 
-    @Override
+
     public List<Category> getAllCategory() {
         return categoryDao.getAll();
     }
@@ -43,22 +41,34 @@ public class BusinessServiceImpl implements BusinessService {
 
     }
 
-    public Page getBookPageData(String curPage){
-        if(curPage==null)
-        {
-           int totalRecord=bookDao.getTotalRecord();
-           Page page=new Page(1,totalRecord);
+    public Page getBookPageData(String curPage) {
+        int totalRecord = bookDao.getTotalRecord();
+        int currPage = 1;
+        if (curPage != null) {
+            currPage = Integer.parseInt(curPage);
         }
-    return page;
-
+        Page page = new Page(currPage, totalRecord);
+        return page;
     }
 
+    public Page getBookPageData(String curPage,String category_id){
+        int totalRecord=bookDao.getTotalRecord(category_id);
+        int currPage=1;
+        if(curPage!=null)
+        {
+            currPage=Integer.parseInt(curPage);
+        }
+        Page page=new Page(currPage,totalRecord);
+        return page;
+    }
+    public void addBooktoCart(Cart cart, Book book) {
+        cart.add(book);
+    }
 
-
-
-
-
-
+    public User findUser(String id)
+    {
+       return userDao.find(id);
+    }
 
     public void registerUser(User user) {
         userDao.add(user);
@@ -69,5 +79,44 @@ public class BusinessServiceImpl implements BusinessService {
         return userDao.find(username, password);
 
     }
+    public void createOrder(Cart cart, User user)
+    {
+        Order order=new Order();
+        Map<String,CartItem> map=cart.getMap();
+        Set<OrderItem> itemSet=new HashSet<>();
+        for(CartItem thisCartItem:map.values())
+        {
+            itemSet.add(new OrderItem(thisCartItem));
+        }
 
+        order.setOrderItems(itemSet);
+        order.setId(WebUtils.makeID());
+        order.setOrderTime(new Date());
+        order.setUser(user);
+        order.setPrice(cart.getPrice());
+        order.setState(false);
+
+    }
+    public List<Order> listOrder(String state)
+    {
+        return orderDao.getAll(Boolean.parseBoolean(state));
+    }
+    public Order findOrder(String orderId)
+    {
+        return orderDao.find(orderId);
+    }
+    public List<Order> listOrder(String userId,String state)
+    {
+        return orderDao.getAll(Boolean.parseBoolean(state),userId);
+    }
+    public void mailed(String orderId)
+    {
+        Order order=orderDao.find(orderId);
+        order.setState(true);
+        orderDao.update(order);
+    }
+    public List<Order> listOrderForUser(String userId)
+    {
+        return orderDao.getAllOrder(userId);
+    }
 }

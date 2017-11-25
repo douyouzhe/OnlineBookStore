@@ -1,17 +1,19 @@
 package com.obs.domain;
 
+import utils.WebUtils;
+
 public class OrderItem {
 
-    private int id;
+    private String id;
     private Book book;
     private int quantity;
     private double price;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -37,5 +39,15 @@ public class OrderItem {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public  OrderItem()
+    {}
+    public OrderItem( CartItem cartItem)
+    {
+        this.id= WebUtils.makeID();
+        this.book=cartItem.getBook();
+        this.quantity=cartItem.getQuantity();
+        this.price=cartItem.getPrice();
     }
 }
