@@ -111,7 +111,7 @@
                 </c:forEach>
             </ul>
         </div>
-        <a href="${pageContext.request.contextPath }/client/listCart.jsp" target="body">查看购物车</a>
+        <a href="${pageContext.request.contextPath }/client/listCart.jsp" target="body">My Cart</a>
     </div>
 </div>
 

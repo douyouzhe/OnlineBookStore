@@ -7,10 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bb72cca-f13e-4ecf-b29f-bfec3a6e56a5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/client/listCart.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/WEB-INF/classes/com/obs/client/LoginServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/WEB-INF/classes/com/obs/client/LoginServlet.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/classes/com/obs/client/LoginServlet.class" afterPath="$PROJECT_DIR$/web/WEB-INF/classes/com/obs/client/LoginServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/obs/client/IndexServlet.java" afterPath="$PROJECT_DIR$/src/com/obs/client/IndexServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/obs/client/LoginServlet.java" afterPath="$PROJECT_DIR$/src/com/obs/client/LoginServlet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/client/head.jsp" afterPath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/client/head.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/client/head.jsp" afterPath="$PROJECT_DIR$/web/client/head.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,8 +28,8 @@
       <file leaf-file-name="head.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/client/head.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="452">
-              <caret line="111" column="17" lean-forward="true" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
+            <state relative-caret-position="437">
+              <caret line="110" column="28" lean-forward="true" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -149,8 +149,8 @@
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/com/obs/client/IndexServlet.java" />
         <option value="$PROJECT_DIR$/web/client/listCart.jsp" />
-        <option value="$PROJECT_DIR$/web/client/head.jsp" />
         <option value="$PROJECT_DIR$/src/com/obs/client/LoginServlet.java" />
+        <option value="$PROJECT_DIR$/web/client/head.jsp" />
       </list>
     </option>
   </component>
@@ -578,7 +578,7 @@
       <workItem from="1511110425143" duration="7010000" />
       <workItem from="1511559502847" duration="13646000" />
       <workItem from="1511906074043" duration="13582000" />
-      <workItem from="1511972063992" duration="9147000" />
+      <workItem from="1511972063992" duration="9209000" />
     </task>
     <task id="LOCAL-00001" summary="fuck u">
       <created>1511574215191</created>
@@ -601,11 +601,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511980153579</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="2">
+      <created>1511992796327</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1511992796327</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44738000" />
+    <option name="totallyTimeSpent" value="44800000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1100,8 +1107,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/client/head.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="111" column="17" lean-forward="true" selection-start-line="111" selection-start-column="17" selection-end-line="111" selection-end-column="17" />
+        <state relative-caret-position="437">
+          <caret line="110" column="28" lean-forward="true" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
           <folding />
         </state>
       </provider>
