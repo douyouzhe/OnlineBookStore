@@ -20,13 +20,17 @@
             padding-left:auto;
         }
         .left{
-            padding-left:0px;
+                     padding-left:10px;
+                 }
+        .post-left{
+            padding-top:10px;
+           float:left;
         }
         a{
             text-decoration: none;
 
         }
-        a:hover { text-decoration:underline;color: red}
+        a:hover { text-decoration:underline;color: gray}
 
         .container {
             margin:auto;
@@ -56,6 +60,13 @@
                 transform: translate3d(-50%, -50%, 0);
                 letter-spacing: -2.2rem;
             }
+            p1{
+                color:white;
+                font-size:2rem;
+                text-align:left;
+
+            }
+            p1:hover { text-decoration:underline;color: gray}
 
         @-webkit-keyframes letterspacing {
             0% {
@@ -88,10 +99,8 @@
 
 
     <img src="${pageContext.request.contextPath }/icons/dividingLine.png" width=100% height="80" class="center" >
-    <a href="${pageContext.request.contextPath }/index?method=getAll" target="body">  <img src="${pageContext.request.contextPath }/icons/homePage.png"  class="post-thumb" height="50"></a>
-    <%--<hr width=90% size=3 color=white style="filter:progid:DXImageTransform.Microsoft.Glow(color=#5151A2,strength=10)">--%>
-    <%--<hr width=90% size=30 color=white style="filter:alpha(opacity=100,finishopacity=0,style=2)">--%>
-    <%--<a href="${pageContext.request.contextPath }/client/listcart.jsp" target="body">查看购物车</a>--%>
+    <a href="${pageContext.request.contextPath }/index?method=getAll" target="body">  <img src="${pageContext.request.contextPath }/icons/homePage.png"  class="post-thumb" height="50"><p1 class="post-left">Homepage</p1> </a>
+    <a href="${pageContext.request.contextPath }/client/listCart.jsp" target="body"><img src="${pageContext.request.contextPath }/icons/cart.png"  class="post-thumb" height="50"><p1 class="post-left">Cart</p1></a>
     <%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
 
 </div>
@@ -99,7 +108,7 @@
 <div id="body" style="text-align:center;background-color:white;width:100%;height:800px">
     <div id="content" style="margin:0;width:100%">
         <div id="Categories" style="float:left;width:300px;background-color:black; color:white; font-family: Fantasy; font-size:150%;border:0px;text-align:left;height:100%;">
-            <img src="${pageContext.request.contextPath }/icons/categories.png" width="20" height="20" class="left">categories:
+            <h2><img src="${pageContext.request.contextPath }/icons/categories.png" width="35" height="35" class="left">  Categories:</h2>
 
             <ul>
                 <c:forEach var="category" items="${categories}">
@@ -111,7 +120,17 @@
                 </c:forEach>
             </ul>
         </div>
-        <a href="${pageContext.request.contextPath }/client/listCart.jsp" target="body">查看购物车</a>
+    </div>
+    <div id="bookList">
+
+        <ul>
+            <c:forEach var="thisBook" items="${curPage.list}">
+                <li>
+                <image src="${pageContext.request.contextPath}${thisBook.image}" width="50" height="100" class="post-thumb"></image> <p1 class="post-left">${thisBook.name} <br> ${thisBook.price}</p1>
+                </li>
+            </c:forEach>
+        </ul>
+
     </div>
 </div>
 
