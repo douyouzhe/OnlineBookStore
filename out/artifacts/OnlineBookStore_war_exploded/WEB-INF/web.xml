@@ -38,4 +38,14 @@
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>deleteItem</servlet-name>
+        <servlet-class>com.obs.client.DeleteItemServlet</servlet-class>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteItem</servlet-name>
+        <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
 </web-app>

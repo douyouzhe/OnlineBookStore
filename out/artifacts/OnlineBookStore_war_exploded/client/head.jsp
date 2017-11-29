@@ -120,6 +120,7 @@
                 </c:forEach>
             </ul>
         </div>
+<<<<<<< HEAD
     </div>
     <div id="bookList">
 
@@ -131,6 +132,9 @@
             </c:forEach>
         </ul>
 
+=======
+        <a href="${pageContext.request.contextPath }/client/listCart.jsp" target="body">My Cart</a>
+>>>>>>> 0134ea779ab9e882c65da8e11cc4703e6b0faa56
     </div>
 </div>
 

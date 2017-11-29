@@ -42,6 +42,7 @@ public class LoginServlet extends HttpServlet{
             //test only
             Book bk = new Book();
             bk.setName("Father Son");
+            bk.setId("1");
             bk.setAuthor("DOU");
             bk.setPrice(1999.9);
             CartItem ci = new CartItem();
@@ -50,11 +51,7 @@ public class LoginServlet extends HttpServlet{
             req.getSession().setAttribute("cart",c);
 
 
-
             req.getRequestDispatcher("/index?method=getAll").forward(req,resp);
-
-
-
 
         }else if("New User".equals(action)){
             req.getRequestDispatcher("/client/register.jsp").forward(req,resp);
