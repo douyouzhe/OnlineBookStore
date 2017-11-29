@@ -44,3 +44,13 @@ create table category
 		name varchar(100) not null unique,
 		description varchar(255)
 	 );
+insert into category values ('1','Children Book','');
+insert into category values ('2','Arts&Phototgraphy','');
+insert into category values ('3','Biographies&Memoirs','');
+insert into category values ('4','cookbooks,Food&Wine','');
+insert into category values ('5','History','');
+insert into category values ('6','Literature&Fiction','');
+insert into category values ('7','Mystery&Suspense','');
+insert into category values ('8','Romance','');
+insert into category values ('9','Sci-Fi&Fantasy','');
+insert into category values ('10','Teens&Young Adult','');
