@@ -95,6 +95,7 @@ public class BusinessServiceImpl implements BusinessService {
         order.setUser(user);
         order.setPrice(cart.getPrice());
         order.setState(false);
+        // orderDao
 
     }
     public List<Order> listOrder(String state)
