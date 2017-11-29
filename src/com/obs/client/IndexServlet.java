@@ -39,7 +39,6 @@ public class IndexServlet extends HttpServlet {
         }
 
     }
-
     private void getAll(HttpServletRequest request,HttpServletResponse response)
             throws ServletException,IOException
     {
