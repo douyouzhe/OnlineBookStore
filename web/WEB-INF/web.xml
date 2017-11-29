@@ -32,6 +32,7 @@
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>com.obs.client.IndexServlet</servlet-class>
+
     </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
