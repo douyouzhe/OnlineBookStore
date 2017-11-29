@@ -100,6 +100,7 @@
     <div id="content" style="margin:0;width:100%">
         <div id="Categories" style="float:left;width:300px;background-color:black; color:white; font-family: Fantasy; font-size:150%;border:0px;text-align:left;height:100%;">
             <img src="${pageContext.request.contextPath }/icons/categories.png" width="20" height="20" class="left">categories:
+
             <ul>
                 <c:forEach var="category" items="${categories}">
                     <li>
