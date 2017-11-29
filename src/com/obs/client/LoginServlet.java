@@ -3,6 +3,7 @@ package com.obs.client;
 import com.obs.domain.User;
 import com.obs.service.BusinessServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import java.io.IOException;
 public class LoginServlet extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 
         String action = req.getParameter("action");
 
@@ -28,7 +30,11 @@ public class LoginServlet extends HttpServlet{
                 return;
             }
             req.getSession().setAttribute("user",user);
-            req.getRequestDispatcher("/client/head.jsp").forward(req,resp);
+
+            System.out.println(req.getMethod());
+            req.getRequestDispatcher("/index?method=getAll").forward(req,resp);
+
+
         }else if("New User".equals(action)){
             req.getRequestDispatcher("/client/register.jsp").forward(req,resp);
         }

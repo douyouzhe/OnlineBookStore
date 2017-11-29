@@ -16,7 +16,9 @@ public class IndexServlet extends HttpServlet {
     public void doGet(HttpServletRequest request,HttpServletResponse response)
             throws ServletException,IOException
     {
+
         String method=request.getParameter("method");
+
         if(method.equalsIgnoreCase("getAll"))
         {
             getAll(request,response);
@@ -25,17 +27,30 @@ public class IndexServlet extends HttpServlet {
             listBookOfThisCategory(request,response);
         }
     }
+    public void doPost(HttpServletRequest request,HttpServletResponse response)
+            throws ServletException,IOException
+    {
+
+        String method=request.getParameter("method");
+
+        if(method.equalsIgnoreCase("getAll"))
+        {
+            getAll(request,response);
+        }
+
+    }
 
     private void getAll(HttpServletRequest request,HttpServletResponse response)
             throws ServletException,IOException
     {
+
         BusinessServiceImpl service=new BusinessServiceImpl();
         List<Category> categories=service.getAllCategory();
         request.setAttribute("categories",categories);
         String curPage=request.getParameter("curPage");
         Page page=service.getBookPageData(curPage);
-        request.setAttribute("Page",page);
-        request.getRequestDispatcher("head.jsp").forward(request,response);
+        request.setAttribute("curPage",page);
+        request.getRequestDispatcher("/client/head.jsp").forward(request,response);
     }
 
     private void listBookOfThisCategory(HttpServletRequest request,HttpServletResponse response)
@@ -45,7 +60,7 @@ public class IndexServlet extends HttpServlet {
         String category_id=request.getParameter("category_id");
         String curPage=request.getParameter("curPage");
         Page page=service.getBookPageData(curPage,category_id);
-        request.setAttribute("curPage",curPage);
-        request.getRequestDispatcher("head.jsp").forward(request,response);
+        request.setAttribute("curPage",page);
+        request.getRequestDispatcher("/client/head.jsp").forward(request,response);
     }
 }

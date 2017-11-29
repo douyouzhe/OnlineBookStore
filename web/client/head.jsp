@@ -22,6 +22,12 @@
         .left{
             padding-left:0px;
         }
+        a{
+            text-decoration: none;
+
+        }
+        a:hover { text-decoration:underline;color: red}
+
         .container {
             margin:auto;
             width: 100%;
@@ -90,14 +96,16 @@
 
 </div>
 
-<div id="body" style="text-align:center;background-color:white;width:100%;height:600px">
+<div id="body" style="text-align:center;background-color:white;width:100%;height:800px">
     <div id="content" style="margin:0;width:100%">
-        <div id="Categories" style="float:left;width:200px;background-color:black; color:white;border:1px solid grey;text-align:left;height:300px;">
+        <div id="Categories" style="float:left;width:300px;background-color:black; color:white; font-family: Fantasy; font-size:150%;border:0px;text-align:left;height:100%;">
             <img src="${pageContext.request.contextPath }/icons/categories.png" width="20" height="20" class="left">categories:
             <ul>
                 <c:forEach var="category" items="${categories}">
                     <li>
-                    <a href="${pageContext.request.contextPath}/index?method=listBooksOfThisCategory&category_id=${category.id}">${category.name}</a>
+                    <a href="${pageContext.request.contextPath}/index?method=listBooksOfThisCategory&category_id=${category.id}" style="color:White; ">${category.name}</a>
+                        <br>
+                        <br>
                     </li>
                 </c:forEach>
             </ul>

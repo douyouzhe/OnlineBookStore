@@ -81,8 +81,8 @@ public class BookDaoImpl implements BookDao {
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select count(*) from book where category_id=?";
-            long totalrecord = (Long)runner.query(sql, new ScalarHandler(), category_id);
-            return (int)totalrecord;
+            long totalRecord = (Long)runner.query(sql, new ScalarHandler(), category_id);
+            return (int)totalRecord;
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);
