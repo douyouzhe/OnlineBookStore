@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Page {
     private int totalPage;
-    private int pageSize=3;
+    private int pageSize=1;
     private int totalRecord;
     private int curPage;
     private List list;
@@ -25,6 +25,7 @@ public class Page {
             startPage=1;
             endPage=totalPage;
         }
+
     }
     public int getTotalpage() {
         return totalPage;

@@ -22,7 +22,7 @@ public class IndexServlet extends HttpServlet {
         if(method.equalsIgnoreCase("getAll"))
         {
             getAll(request,response);
-        }else if(method.equalsIgnoreCase("listBooksOfSomeCategory"))
+        }else if(method.equalsIgnoreCase("listBookOfThisCategory"))
         {
             listBookOfThisCategory(request,response);
         }

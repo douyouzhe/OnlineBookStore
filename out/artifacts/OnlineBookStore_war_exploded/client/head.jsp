@@ -113,28 +113,24 @@
             <ul>
                 <c:forEach var="category" items="${categories}">
                     <li>
-                    <a href="${pageContext.request.contextPath}/index?method=listBooksOfThisCategory&category_id=${category.id}" style="color:White; ">${category.name}</a>
+                    <a href="${pageContext.request.contextPath}/index?method=listBookOfThisCategory&category_id=${category.id}" style="color:White; ">${category.name}</a>
                         <br>
                         <br>
                     </li>
                 </c:forEach>
             </ul>
         </div>
-<<<<<<< HEAD
     </div>
     <div id="bookList">
 
         <ul>
             <c:forEach var="thisBook" items="${curPage.list}">
                 <li>
-                <image src="${pageContext.request.contextPath}${thisBook.image}" width="50" height="100" class="post-thumb"></image> <p1 class="post-left">${thisBook.name} <br> ${thisBook.price}</p1>
+                <image src="${pageContext.request.contextPath}${thisBook.image}" width="150" height="300" class="post-thumb"></image> <p1 class="post-left">${thisBook.name} <br> ${thisBook.price}</p1>
                 </li>
             </c:forEach>
         </ul>
 
-=======
-        <a href="${pageContext.request.contextPath }/client/listCart.jsp" target="body">My Cart</a>
->>>>>>> 0134ea779ab9e882c65da8e11cc4703e6b0faa56
     </div>
 </div>
 

@@ -68,8 +68,9 @@ public class BookDaoImpl implements BookDao {
     public List<Book> getPageData(int startindex, int pagesize, String category_id){
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "select * from book where category_id=? limit ?,?";
-            Object params[] = {category_id, startindex, pagesize};
+            String sql = "select * from book where category_id=? limit ?";
+            Object params[] = {category_id, startindex};
+            //System.out.println(params[2].toString());
             return (List<Book>)runner.query(sql, new BeanListHandler(Book.class), params);
         } catch (Exception e) {
             e.printStackTrace();

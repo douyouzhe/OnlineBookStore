@@ -59,6 +59,12 @@ public class BusinessServiceImpl implements BusinessService {
             currPage=Integer.parseInt(curPage);
         }
         Page page=new Page(currPage,totalRecord);
+
+        List<Book> ls = bookDao.getPageData(page.getStartindex(),
+                page.getPagesize(),category_id);
+
+        page.setList(ls);
+
         return page;
     }
     public void addBooktoCart(Cart cart, Book book) {
