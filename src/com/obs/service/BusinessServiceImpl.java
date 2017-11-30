@@ -19,9 +19,6 @@ public class BusinessServiceImpl implements BusinessService {
     private UserDao userDao = DaoFactory.getInstance().createDao("dao.Impl.UserDaoImpl", UserDao.class);
     private OrderDao orderDao = DaoFactory.getInstance().createDao("dao.Impl.OrderDaoImpl", OrderDao.class);
 
-
-
-
     public void addCategory(Category category) {
             categoryDao.add(category);
     }
@@ -85,6 +82,7 @@ public class BusinessServiceImpl implements BusinessService {
         return userDao.find(username, password);
 
     }
+
     public void createOrder(Cart cart, User user)
     {
         Order order=new Order();
@@ -101,8 +99,7 @@ public class BusinessServiceImpl implements BusinessService {
         order.setUser(user);
         order.setPrice(cart.getPrice());
         order.setState(false);
-        // orderDao
-
+        orderDao.add(order);
     }
     public List<Order> listOrder(String state)
     {

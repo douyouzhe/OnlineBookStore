@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class BuyServelt extends HttpServlet {
@@ -25,7 +26,7 @@ public class BuyServelt extends HttpServlet {
                 BusinessServiceImpl service = new BusinessServiceImpl();
                 service.createOrder(cart,user);
                 req.setAttribute("message","Thank you for shopping with us!");
-                req.removeAttribute("cart");
+                req.getSession().removeAttribute("cart");
                 req.getRequestDispatcher("/message.jsp").forward(req,resp);
             }
 

@@ -14,6 +14,11 @@
 
     <body>
         ${message}
+        <br>
+
+        <a  href="${pageContext.request.contextPath }/client/head.jsp">
+            <p>Back</p>
+        </a>
 
     </body>
 </html>
