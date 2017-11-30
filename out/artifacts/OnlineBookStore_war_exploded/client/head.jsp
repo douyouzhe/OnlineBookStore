@@ -126,7 +126,12 @@
         <ul>
             <c:forEach var="thisBook" items="${curPage.list}">
                 <li>
-                <image src="${pageContext.request.contextPath}${thisBook.image}" width="150" height="300" class="post-thumb"></image> <p1 class="post-left">${thisBook.name} <br> ${thisBook.price}</p1>
+                    <br>
+                    <br>
+
+                        <tr><td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
+                            <td><p1 style="color:black;"class="post-left">${thisBook.name} <br> ${thisBook.price}</p1></td></tr>
+                    </table>
                 </li>
             </c:forEach>
         </ul>
