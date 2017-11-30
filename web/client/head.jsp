@@ -129,8 +129,8 @@
                     <br>
                     <br>
 
-                        <tr><td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
-                            <td><p1 style="color:black;"class="post-left">${thisBook.name} <br> ${thisBook.price}</p1></td></tr>
+                        <td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
+                            <td><p1 style="font-size:100%;color:black;"class="post-left">${thisBook.name} <br> $${thisBook.price}</p1></td>
                     </table>
                 </li>
             </c:forEach>
