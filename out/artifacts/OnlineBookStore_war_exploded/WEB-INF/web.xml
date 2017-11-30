@@ -59,4 +59,14 @@
         <url-pattern>/buy</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>addToCart</servlet-name>
+        <servlet-class>com.obs.client.AddToCartServlet</servlet-class>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>addToCart</servlet-name>
+        <url-pattern>/addtocart</url-pattern>
+    </servlet-mapping>
+
 </web-app>

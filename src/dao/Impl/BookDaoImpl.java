@@ -42,6 +42,7 @@ public class BookDaoImpl implements BookDao {
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select * from book limit ?,?";
+            pagesize=3;
             Object params[] = {startindex, pagesize};
             return (List<Book>)runner.query(sql, new BeanListHandler(Book.class), params);
         } catch (Exception e) {

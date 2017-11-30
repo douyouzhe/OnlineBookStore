@@ -105,7 +105,7 @@
 
 </div>
 
-<div id="body" style="text-align:center;background-color:white;width:100%;height:800px">
+<div id="body" style="text-align:center;background-color:white;width:100%;height:1000px">
     <div id="content" style="margin:0;width:100%">
         <div id="Categories" style="float:left;width:300px;background-color:black; color:white; font-family: Fantasy; font-size:150%;border:0px;text-align:left;height:100%;">
             <h2><img src="${pageContext.request.contextPath }/icons/categories.png" width="35" height="35" class="left">  Categories:</h2>
@@ -126,11 +126,11 @@
         <ul>
             <c:forEach var="thisBook" items="${curPage.list}">
                 <li>
-                    <br>
-                    <br>
+                    <table>
 
-                        <tr><td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
-                            <td><p1 style="color:black;"class="post-left">${thisBook.name} <br> ${thisBook.price}</p1></td></tr>
+                        <td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
+                            <td><p1 style="font-size:100%;color:black;"class="post-left">${thisBook.name} <br> $${thisBook.price}</p1></td>
+
                     </table>
                 </li>
             </c:forEach>
