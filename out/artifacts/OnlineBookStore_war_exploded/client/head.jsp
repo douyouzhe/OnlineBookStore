@@ -131,17 +131,10 @@
                         <td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
                             <td><p1 style="font-size:100%;color:black;"class="post-left">${thisBook.name} <br> $${thisBook.price}</p1></td>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        <td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
-                            <td><p1 style="font-size:100%;color:black;"class="post-left">${thisBook.name} <br> $${thisBook.price}</p1></td>
                     <td>
                         <a href="${pageContext.request.contextPath }/addtocart?bookId=${thisBook.id}">Add to cart</a>
                     </td>
-=======
->>>>>>> 816696dbcd05354f1712b36aca71f654ba91d1b0
-=======
->>>>>>> 816696dbcd05354f1712b36aca71f654ba91d1b0
+
                     </table>
                 </li>
             </c:forEach>
