@@ -27,22 +27,28 @@
         <td>Order Price:</td>
         <td>Order Status:</td>
         <%--<td>Order Items:</td>--%>
+        <%--<a href="${pageContext.request.contextPath}/index?method=${param.method}&curPage=${curPage}&category_id=${param.category_id}">${curPage }</a>--%>
     </tr>
     <c:forEach var="me" items="${requestScope.get(\"order\")}">
         <tr>
-            <td>${me.id}</td>
+            <td><a href="${pageContext.request.contextPath}/user?method=listOrders&orderId=${me.id}">${me.id}</a></td>
             <td>${me.orderTime}</td>
             <td>${me.price}</td>
             <td>${me.state}</td>
             <%--<td>${me.orderItems}</td>--%>
         </tr>
     </c:forEach>
-
-    <tr>
-        <td colspan="1">Total Price:</td>
-        <td colspan="5">${cart.price }</td>
-    </tr>
 </table>
+
+
+<div>
+    <table width="40%" border="1" style="text-align: center;">
+        <c:forEach var="me" items="${requestScope.get(\"theOrder\")}">
+            <td>${me.id}</td>
+        </c:forEach>
+    </table>
+
+</div>
 
 
 
