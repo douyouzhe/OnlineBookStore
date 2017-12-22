@@ -134,7 +134,10 @@
         </form>
     </div>
     </div>
-    <%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
+
+    <a href="${pageContext.request.contextPath }/user" height="50"><p1 class="post-left">user</p1> </a>
+
+<%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
 
 </div>
 

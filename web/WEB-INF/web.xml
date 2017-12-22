@@ -79,4 +79,15 @@
         <url-pattern>/search</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>user</servlet-name>
+        <servlet-class>com.obs.client.UserProfileServlet</servlet-class>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>user</servlet-name>
+        <url-pattern>/user</url-pattern>
+    </servlet-mapping>
+
 </web-app>
