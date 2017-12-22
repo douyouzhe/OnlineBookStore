@@ -134,7 +134,10 @@
         </form>
     </div>
     </div>
-    <%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
+
+    <a href="${pageContext.request.contextPath }/user" height="50"><p1 class="post-left">user</p1> </a>
+
+<%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
 
 </div>
 
@@ -180,7 +183,7 @@
         <div id="page" style="margin-top:20px; text-align:center;">
            current page: &nbsp;[${page.curPage }]&nbsp;
             <c:forEach var="curPage" begin="${page.startpage }" end="${page.endpage }">
-                <a href="${pageContext.request.contextPath }/client/IndexServlet?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }${param.method }</a>
+                <a href="${pageContext.request.contextPath }/index?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }</a>
             </c:forEach>
             &nbsp;&nbsp;
             total pages:${page.totalpage }，${page.totalrecord }books in list
