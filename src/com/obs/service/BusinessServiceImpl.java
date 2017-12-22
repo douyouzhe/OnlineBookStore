@@ -68,6 +68,8 @@ public class BusinessServiceImpl implements BusinessService {
         List<Book> ls = bookDao.getPageData(page.getStartindex(),
                 page.getPagesize(),category_id);
 
+        //System.out.println(ls.size());
+       // System.out.println(ls.get(0).getName());
         page.setList(ls);
 
         return page;

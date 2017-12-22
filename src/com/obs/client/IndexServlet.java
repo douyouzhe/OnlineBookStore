@@ -17,6 +17,7 @@ public class IndexServlet extends HttpServlet {
             throws ServletException,IOException
     {
 
+
         String method=request.getParameter("method");
 
         if(method.equalsIgnoreCase("getAll"))
@@ -45,14 +46,14 @@ public class IndexServlet extends HttpServlet {
     private void getAll(HttpServletRequest request,HttpServletResponse response)
             throws ServletException,IOException
     {
-        System.out.println(1);
+
         BusinessServiceImpl service=new BusinessServiceImpl();
         List<Category> categories=service.getAllCategory();
         request.setAttribute("categories",categories);
         request.setAttribute("showType", "category");
         String curPage=request.getParameter("curPage");
         Page page=service.getBookPageData(curPage);
-        System.out.println(page.getCurPage());
+
         request.setAttribute("page",page);
         request.getRequestDispatcher("/client/head.jsp").forward(request,response);
     }

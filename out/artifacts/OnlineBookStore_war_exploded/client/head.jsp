@@ -185,7 +185,7 @@
             <c:forEach var="curPage" begin="${page.startpage }" end="${page.endpage }">
                 <a href="${pageContext.request.contextPath }/index?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }</a>
             </c:forEach>
-            &nbsp;&nbsp;
+
             total pages:${page.totalpage }，${page.totalrecord }books in list
         </div>
         </c:if>
