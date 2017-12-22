@@ -180,10 +180,10 @@
         <div id="page" style="margin-top:20px; text-align:center;">
            current page: &nbsp;[${page.curPage }]&nbsp;
             <c:forEach var="curPage" begin="${page.startpage }" end="${page.endpage }">
-                <a href="${pageContext.request.contextPath }/client/IndexServlet?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }${param.method }</a>
+                <a href="${pageContext.request.contextPath }/index?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }</a>
             </c:forEach>
-            &nbsp;&nbsp;
-            total pages:${page.totalpage }，${page.totalrecord }books in list
+
+            total pages:${page.totalpage }.${page.totalrecord }books in list
         </div>
         </c:if>
 <c:if test="${showType=='searchResult'}">
