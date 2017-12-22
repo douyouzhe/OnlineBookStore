@@ -37,6 +37,10 @@ public class BusinessServiceImpl implements BusinessService {
         return bookDao.find(id);
 
     }
+    public Book findBookByName(String bookName) {
+        return bookDao.findByName(bookName);
+
+    }
 
     public Page getBookPageData(String curPage) {
         int totalRecord = bookDao.getTotalRecord();
@@ -44,6 +48,7 @@ public class BusinessServiceImpl implements BusinessService {
         if (curPage != null) {
             currPage = Integer.parseInt(curPage);
         }
+        //System.out.println(currPage);
         Page page = new Page(currPage, totalRecord);
         List<Book> ls = bookDao.getPageData(page.getStartindex(),
                 page.getPagesize());

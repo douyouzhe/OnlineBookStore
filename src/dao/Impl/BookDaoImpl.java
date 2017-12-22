@@ -24,9 +24,7 @@ public class BookDaoImpl implements BookDao {
         }
     }
 
-    /* (non-Javadoc)
-     * @see dao.impl.BookDao#find(java.lang.String)
-     */
+
     public Book find(String id){
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
@@ -37,12 +35,23 @@ public class BookDaoImpl implements BookDao {
             throw new RuntimeException(e);
         }
     }
+    public Book findByName(String bookName){
+        try{
+            QueryRunner runner=new QueryRunner(JdbcUtils.getDataSource());
+            String sql="select * from book where name=?";
+            return (Book)runner.query(sql, new BeanHandler(Book.class), bookName);
+
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
 
     public List<Book> getPageData(int startindex, int pagesize){
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select * from book limit ?,?";
-            pagesize=3;
             Object params[] = {startindex, pagesize};
             return (List<Book>)runner.query(sql, new BeanListHandler(Book.class), params);
         } catch (Exception e) {

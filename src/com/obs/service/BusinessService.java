@@ -12,6 +12,7 @@ public interface BusinessService {
     List<Category> getAllCategory();
 
     Book findBook(String id);
+    Book findBookByName(String bookName);
     Page getBookPageData(String curPage);
     Page getBookPageData(String curPage,String category_id);
     void addBooktoCart(Cart cart, Book book);

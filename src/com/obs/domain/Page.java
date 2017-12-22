@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Page {
     private int totalPage;
-    private int pageSize=1;
+    private int pageSize=3;
     private int totalRecord;
     private int curPage;
     private List list;
@@ -51,11 +51,11 @@ public class Page {
         this.totalRecord = totalRecord;
     }
 
-    public int getPagenum() {
+    public int getCurPage() {
         return curPage;
     }
 
-    public void setPagenum(int curPage) {
+    public void setCurPage(int curPage) {
         this.curPage = curPage;
     }
 

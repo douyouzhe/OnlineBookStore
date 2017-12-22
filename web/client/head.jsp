@@ -43,7 +43,7 @@
                 background-color: black;
                 overflow: hidden;
             }
-
+/*the h1 is copied from a blog,because it's too fancy*/
             h1 {
                 font-family: Righteous;
                 color: white;
@@ -67,7 +67,7 @@
 
             }
             p1:hover { text-decoration:underline;color: gray}
-
+/*as above*/
         @-webkit-keyframes letterspacing {
             0% {
                 letter-spacing: -2.2rem;
@@ -85,6 +85,31 @@
                 color: #fff;
             }
         }
+        /*search bar,copied from w3school*/
+        .search .search-container {
+            float: left;
+            margin-left:350px;
+        }
+
+        .search input[type=text] {
+            padding: 6px;
+            margin-top: 6px;
+            font-size: 30px;
+            border: none;
+        }
+
+        .search .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 6px;
+            margin-right: 16px;
+            background: bottom;
+            font-size: 60px;
+            border: none;
+            cursor: pointer;
+        }
+
+
 
 
     </style>
@@ -101,6 +126,14 @@
     <img src="${pageContext.request.contextPath }/icons/dividingLine.png" width=100% height="80" class="center" >
     <a href="${pageContext.request.contextPath }/index?method=getAll" target="body">  <img src="${pageContext.request.contextPath }/icons/homePage.png"  class="post-thumb" height="50"><p1 class="post-left">Homepage</p1> </a>
     <a href="${pageContext.request.contextPath }/client/listCart.jsp" target="body"><img src="${pageContext.request.contextPath }/icons/cart.png"  class="post-thumb" height="50"><p1 class="post-left">Cart</p1></a>
+    <div class="search">
+    <div class="search-container" width="500">
+        <form method="post" action="${pageContext.request.contextPath }/search">
+            <input type="text" placeholder="Search by book name.." name="search">
+            <button type="submit"><img src="${pageContext.request.contextPath}/icons/search.png" height="40"></button>
+        </form>
+    </div>
+    </div>
     <%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
 
 </div>
@@ -122,9 +155,11 @@
         </div>
     </div>
     <div id="bookList">
+    <c:if test="${showType=='category'}">
 
+        <div>
         <ul>
-            <c:forEach var="thisBook" items="${curPage.list}">
+            <c:forEach var="thisBook" items="${page.list}">
                 <li>
                     <table>
 
@@ -134,14 +169,38 @@
                         <td>&nbsp &nbsp &nbsp
                         </td>
                     <td>
-                        <a href="${pageContext.request.contextPath }/addtocart?bookId=${thisBook.id}" style="color:black; "> <img src="${pageContext.request.contextPath }/icons/addToCart.png"  class="post-thumb" height="30"> &nbsp add to cart</a>
+                        <a href="${pageContext.request.contextPath }/addToCart?bookId=${thisBook.id}" style="color:black; "> <img src="${pageContext.request.contextPath }/icons/addToCart.png"  class="post-thumb" height="30"> &nbsp add to cart</a>
                     </td>
 
                     </table>
                 </li>
             </c:forEach>
         </ul>
+        </div>
+        <div id="page" style="margin-top:20px; text-align:center;">
+           current page: &nbsp;[${page.curPage }]&nbsp;
+            <c:forEach var="curPage" begin="${page.startpage }" end="${page.endpage }">
+                <a href="${pageContext.request.contextPath }/client/IndexServlet?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }${param.method }</a>
+            </c:forEach>
+            &nbsp;&nbsp;
+            total pages:${page.totalpage }，${page.totalrecord }books in list
+        </div>
+        </c:if>
+<c:if test="${showType=='searchResult'}">
 
+    <table>
+
+    <td><image src="${pageContext.request.contextPath}${targetBook.image}" width="230" height="270" class="post-thumb"></image> </td>
+    <td><p1 style="font-size:100%;color:black;"class="post-left">${targetBook.name} <br> $${targetBook.price}</p1></td>
+
+    <td>&nbsp &nbsp &nbsp
+    </td>
+    <td>
+    <a href="${pageContext.request.contextPath }/addToCart?bookId=${targetBoook.id}" style="color:black; "> <img src="${pageContext.request.contextPath }/icons/addToCart.png"  class="post-thumb" height="30"> &nbsp add to cart</a>
+    </td>
+
+    </table>
+</c:if>
     </div>
 </div>
 

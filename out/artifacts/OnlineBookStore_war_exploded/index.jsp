@@ -11,11 +11,6 @@
     <title>OBS</title>
   </head>
 
-  <%--<frameset row="17%,*">--%>
-    <%--<frame src="${pageContext.request.contextPath}/client/head.jsp" name="head">--%>
-    <%--<frame src="${pageContext.request.contextPath}/client/IndexServlet?method=getAll" name="body">--%>
-    <%--</frameset>--%>
-
   <body style = "text-align: left;">
   <img src="${pageContext.request.contextPath}/images/ONLINEBOOKSTORE.JPG">
   <h3>Welcome! login if already a user</h3>

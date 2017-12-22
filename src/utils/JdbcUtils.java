@@ -29,8 +29,5 @@ public class JdbcUtils {
     }
 
 
-// why this method is never used?????
-//    public static Connection getConnection() throws SQLException{
-//        return ds.getConnection();
-//    }
+
 }
