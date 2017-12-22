@@ -15,6 +15,10 @@
             float:left;
             padding-left:100px;
         }
+        .post-thumb2{
+            float:left;
+            padding-left:300px;
+        }
         .center {
 
             padding-left:auto;
@@ -135,9 +139,9 @@
     </div>
     </div>
 
-    <a href="${pageContext.request.contextPath }/user" height="50"><p1 class="post-left">user</p1> </a>
+    <a href="${pageContext.request.contextPath }/user" height="50"><img src="${pageContext.request.contextPath }/icons/profile.png"class="post-thumb2" height="50"> <p1 class="post-left">User</p1> </a>
+    <a href="${pageContext.request.contextPath }/index.jsp" height="50"><img src="${pageContext.request.contextPath }/icons/logout.png"class="post-thumb" height="50"> <p1 class="post-left">Logout</p1> </a>
 
-<%--<a href="${pageContext.request.contextPath }/client/ClientListOrderServlet?userid=${user.id}" target="body"">查看订单</a>--%>
 
 </div>
 
@@ -186,7 +190,7 @@
                 <a href="${pageContext.request.contextPath }/index?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }</a>
             </c:forEach>
 
-            total pages:${page.totalpage }.${page.totalrecord }books in list
+            total pages:${page.totalpage }&nbsp;&nbsp;&nbsp;${page.totalrecord }books in list
         </div>
         </c:if>
 <c:if test="${showType=='searchResult'}">

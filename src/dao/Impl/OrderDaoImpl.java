@@ -76,7 +76,6 @@ public class OrderDaoImpl implements OrderDao {
             String sql = "select * from orders where state=?";
             List<Order> list = (List<Order>) runner.query(sql, new BeanListHandler(Order.class), state);
             for(Order order : list){
-                //找出当前订单属于哪个用户
                 sql = "select user.* from orders,user where orders.id=? and orders.user_id=user.id";
                 User user = (User) runner.query(sql, new BeanHandler(User.class), order.getId());
                 order.setUser(user);
@@ -94,7 +93,6 @@ public class OrderDaoImpl implements OrderDao {
             String sql = "select * from orders where state=? and orders.user_id=?";
             Object params[] = {state, userid};
             List<Order> list = (List<Order>) runner.query(sql, new BeanListHandler(Order.class), params);
-            //将所有该user加到list中
             for(Order order : list){
                 sql = "select * from user where user.id=?";
                 User user = (User) runner.query(sql, new BeanHandler(User.class), userid);
@@ -112,7 +110,6 @@ public class OrderDaoImpl implements OrderDao {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select * from orders where user_id=?";
             List<Order> list = (List<Order>) runner.query(sql, new BeanListHandler(Order.class), userid);
-            //将所有该user加到List中去
             for(Order order : list){
                 sql = "select * from user where id=?";
                 User user = (User) runner.query(sql, new BeanHandler(User.class), userid);
@@ -125,15 +122,24 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    /* (non-Javadoc)
-     * @see dao.impl.OrderDao#update(domain.Order)
-     */
+
     public void update(Order order){
         try{
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "update orders set state=? where id=?";
             Object params[] = {order.isState(), order.getId()};
             runner.update(sql, params);
+        } catch(Exception e){
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    public List<Book> getAllBook(String id)
+    {
+        try{
+            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            String sql = "select book.* FROM book,orders,orderitem Where orders.id=? and orders.id=orderitem.order_id and orderitem.book_id=book.id";
+            return (List<Book>)runner.query(sql, new BeanListHandler(Book.class),id);
         } catch(Exception e){
             e.printStackTrace();
             throw new RuntimeException(e);

@@ -83,9 +83,7 @@ public class BookDaoImpl implements BookDao {
             Object params[] = {category_id, startindex,pagesize};
 
             List list=(List<Book>)runner.query(sql, new BeanListHandler(Book.class), params);
-            System.out.println(startindex);
-            System.out.println(pagesize);
-            System.out.println(list.size());
+
             return list;
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,3 +1,9 @@
+create table category
+	 (
+		id varchar(40) primary key,
+		name varchar(100) not null unique,
+		description varchar(255)
+	 );
 create table book
 	   (
 	  		id varchar(40) primary key,
@@ -38,12 +44,7 @@ create table orderitem
 		constraint order_id_FK foreign key(order_id) references orders(id),
 		constraint book_id_FK foreign key(book_id) references book(id)
 	);
-create table category
-	 (
-		id varchar(40) primary key,
-		name varchar(100) not null unique,
-		description varchar(255)
-	 );
+
 
 -- insert into table category
 insert into category values ('1','Children Book','');
@@ -92,7 +93,7 @@ insert into book values ('34','Complicated',
 'images/bookImages/512Y8OjymeL._AC_US218_.jpg','','8');
 
 
-insert into book values ('29','The Girl Who Lived: A Thrilling Suspense Novel',
+insert into book values ('29','The Girl Who LivedII: A Thrilling Suspense Novel',
 'Christopher Greyson',12.99,
 'images/bookImages/51iGxZUbT2L._AC_US218_.jpg','','7');
 insert into book values ('30','And Then She Was GONE: A riveting new suspense novel',

@@ -68,8 +68,8 @@ public class BusinessServiceImpl implements BusinessService {
         List<Book> ls = bookDao.getPageData(page.getStartindex(),
                 page.getPagesize(),category_id);
 
-        //System.out.println(ls.size());
-       // System.out.println(ls.get(0).getName());
+        System.out.println(ls.size());
+        System.out.println(ls.size());
         page.setList(ls);
 
         return page;
@@ -128,6 +128,10 @@ public class BusinessServiceImpl implements BusinessService {
         Order order=orderDao.find(orderId);
         order.setState(true);
         orderDao.update(order);
+    }
+    public List<Book> getAllBook(String id)
+    {
+        return orderDao.getAllBook(id);
     }
     public List<Order> listOrderForUser(String userId)
     {
