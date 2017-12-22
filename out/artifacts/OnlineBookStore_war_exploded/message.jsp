@@ -10,16 +10,24 @@
 <html>
     <head>
         <title>My JSP 'message.jsp' starting page</title>
+        <style>
+            a:hover { text-decoration:underline;color: gray;}
+            a{text-decoration: none; color:white;text-align: center}
+            p{color:white; font-size:2rem; }
+        </style>
     </head>
 
-    <body>
-        ${message}
+    <body bgcolor="black">
+    <div style="text-align:center">
+    <img  src="${pageContext.request.contextPath }/icons/message.png" width=200>
+    </div>
+    <p align="center">${message}</p>
         <br>
-
-        <a  href="${pageContext.request.contextPath }/client/head.jsp">
-            <p>Back</p>
+    <div style="text-align: center">
+<       <a href="${pageContext.request.contextPath }/index?method=getAll">
+            <img align="center"  src="${pageContext.request.contextPath }/icons/ContinueShopping.png" height="180">
         </a>
-
+    </div>
     </body>
 </html>
 

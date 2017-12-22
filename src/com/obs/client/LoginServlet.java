@@ -40,15 +40,8 @@ public class LoginServlet extends HttpServlet{
             req.getSession().setAttribute("user",user);
 
             //test only
-            Book bk = new Book();
-            bk.setName("Father Son");
-            bk.setId("1");
-            bk.setAuthor("DOU");
-            bk.setPrice(1999.9);
-            CartItem ci = new CartItem();
-            Cart c = new Cart();
-            c.add(bk);
-            req.getSession().setAttribute("cart",c);
+
+
 
 
             req.getRequestDispatcher("/index?method=getAll").forward(req,resp);

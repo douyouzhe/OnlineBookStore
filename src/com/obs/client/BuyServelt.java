@@ -16,13 +16,20 @@ public class BuyServelt extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
             User user = (User) req.getSession().getAttribute("user");
+
             if(user==null){
                 req.setAttribute("message","You have not logged in");
                 req.getRequestDispatcher("/message.jsp").forward(req,resp);
                 return;
             }
+            Cart cart = (Cart)req.getSession().getAttribute("cart");
+            if(cart.getPrice()==0){
+                req.setAttribute("message","You have no book in cart");
+                req.getRequestDispatcher("/message.jsp").forward(req,resp);
+                return;
+            }
             else{
-                Cart cart = (Cart)req.getSession().getAttribute("cart");
+
                 BusinessServiceImpl service = new BusinessServiceImpl();
                 service.createOrder(cart,user);
                 req.setAttribute("message","Thank you for shopping with us!");

@@ -12,14 +12,25 @@
 <html>
 <head>
     <title>My Cart</title>
+    <style>
+     h2{
+         font-size:2rem;
+     }
+     a:hover { text-decoration:underline;color: gray}
+     a{text-decoration: none; color:white}
+    </style>
 </head>
-    <body style="text-align:center;">
+    <body style="text-align:center; background-color:black; color:white">
     <c:if test="${user == null }">
-        You are not logged in!
+        You are not logged in!&nbsp&<nbsp>  </nbsp>
+        <a href="${pageContext.request.contextPath}/index.jsp"> <img  src="${pageContext.request.contextPath }/icons/profile.png" width=20>  login</a>
     </c:if>
 
-    <c:if test="${user != null }">
-        <h2>Items in your cart</h2>
+    <p test="${user != null }">
+        <div align="center">
+            <img  src="${pageContext.request.contextPath }/icons/cartDetail.png" width=400>
+        </div>
+        <h2 >Here are items in your cart!</h2>
         <table width="40%" border="1" align="center" style="text-align: center;">
             <tr>
                 <td>Book Name:</td>
@@ -27,7 +38,7 @@
                 <td>Unit Price:</td>
                 <td>Quantity:</td>
                 <td>Total:</td>
-                <td>Action:</td>
+                <td>Edit:</td>
             </tr>
             <c:forEach var="me" items="${cart.map}">
                 <tr>
@@ -37,7 +48,7 @@
                     <td>${me.value.quantity}</td>
                     <td>${me.value.price}</td>
                     <td>
-                        <a href="${pageContext.request.contextPath}/delete?bookId=${me.value.book.id}">Delete</a>
+                        <a href="${pageContext.request.contextPath}/delete?bookId=${me.value.book.id}"> <img  src="${pageContext.request.contextPath }/icons/delete.png" width=20></a>
                     </td>
                 </tr>
             </c:forEach>
@@ -47,7 +58,7 @@
                 <td colspan="5">${cart.price }</td>
             </tr>
         </table>
-        <a href="${pageContext.request.contextPath }/buy">Buy</a>
-    </c:if>
+        <p style="font-size:2rem"><a href="${pageContext.request.contextPath }/buy"><img src="${pageContext.request.contextPath }/icons/finishTheOrder.png" width="40">Looks good! </a></p>
+        <p style="font-size:2rem"><a href="${pageContext.request.contextPath }/index?method=getAll"><img src="${pageContext.request.contextPath }/icons/homePage.png" width="40">Continue Shopping </a></p>
     </body>
 </html>

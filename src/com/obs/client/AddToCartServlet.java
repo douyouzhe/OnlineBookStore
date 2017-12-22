@@ -29,29 +29,31 @@ public class AddToCartServlet extends HttpServlet{
                 req.getSession().setAttribute("cart",cart);
             }
             service.addBooktoCart(cart,book);
-//            PrintWriter out = resp.getWriter(  );
+            req.getRequestDispatcher("/client/addedToCart.jsp").forward(req,resp);
 //            resp.setContentType("text/html");
-//            System.out.println(req.getContextPath());
-//            out.println("<P>Book added");
-//            out.println("<br><br>");
-//            out.println("<P><a href='"+req.getContextPath()+"/client/head.jsp> Continue shopping </a>");
-//            out.println("<br><br>");
-//            out.println("<P><a href='"+req.getContextPath()+"/client/listCart.jsp> Check out </a>");
+//            PrintWriter out = resp.getWriter();
 
-            resp.setContentType("text/html");
-            PrintWriter out = resp.getWriter();
-
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Hola</title>");
-            out.println("</head>");
-            out.println("<body bgcolor=\"white\">");
-            out.println("<p>Book added</p>");
-            out.println("<p><a href="+req.getContextPath()+"/client/head.jsp> Continue shopping </a></p>");
-            out.println("<p><a href="+req.getContextPath()+"/client/listCart.jsp> Check out </a></p>");
-
-            out.println("</body>");
-            out.println("</html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>book added</title>");
+//
+//            out.println("<style> a:hover { text-decoration:underline;color: gray}");
+//            out.println("a{text-decoration: none; color=white}");
+//            out.println(" p{color:white; font-size:3rem; text_align:center;}");
+//            out.println("</style>");
+//
+//            out.println("</head>");
+//
+//
+//            out.println("<body bgcolor=\"black\">");
+//            out.println("<img src=\"${pageContext.request.contextPath }/icons/addedToCart.png\" width=10>");
+//            out.println("<img src=\"${pageContext.request.contextPath }/icons/addToCart.png\" width=10/>");
+//            out.println("<p>Oh Yeah!<br> We have added this book to your cart</p>");
+//            out.println("<p><a href="+req.getContextPath()+"/index?method=getAll > <img src=\"${pageContext.request.contextPath }/icons/ContinueShopping.png\"  height=\"50\"> </a></p>");
+//            out.println("<p><a href="+req.getContextPath()+"/client/listCart.jsp> Check out </a></p>");
+//
+//            out.println("</body>");
+//            out.println("</html>");
 
 
         }catch(Exception e){

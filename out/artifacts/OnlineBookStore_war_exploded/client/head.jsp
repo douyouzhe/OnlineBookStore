@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>C&D Book Sotre</title>
     <style>
         .post-thumb{
             float:left;
@@ -131,8 +131,10 @@
                         <td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
                             <td><p1 style="font-size:100%;color:black;"class="post-left">${thisBook.name} <br> $${thisBook.price}</p1></td>
 
+                        <td>&nbsp &nbsp &nbsp
+                        </td>
                     <td>
-                        <a href="${pageContext.request.contextPath }/addtocart?bookId=${thisBook.id}">Add to cart</a>
+                        <a href="${pageContext.request.contextPath }/addtocart?bookId=${thisBook.id}" style="color:black; "> <img src="${pageContext.request.contextPath }/icons/addToCart.png"  class="post-thumb" height="30"> &nbsp add to cart</a>
                     </td>
 
                     </table>
