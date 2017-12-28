@@ -65,6 +65,8 @@ public class IndexServlet extends HttpServlet {
         String category_id=request.getParameter("category_id");
         String curPage=request.getParameter("curPage");
         Page page=service.getBookPageData(curPage,category_id);
+        List<Category> categories=service.getAllCategory();
+        request.setAttribute("categories",categories);
         request.setAttribute("showType", "category");
         request.setAttribute("page",page);
         request.getRequestDispatcher("/client/head.jsp").forward(request,response);
