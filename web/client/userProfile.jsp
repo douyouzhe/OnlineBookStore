@@ -12,6 +12,8 @@
     <title>User</title>
 </head>
 <body>
+
+<h2>Your Information</h2>
 <table>
     <tr><td>ID:</td> <td>${requestScope.get("id")}</td></tr>
     <tr><td>Username:</td> <td>${requestScope.get("username")}</td></tr>
@@ -31,7 +33,7 @@
     </tr>
     <c:forEach var="me" items="${requestScope.get(\"order\")}">
         <tr>
-            <td><a href="${pageContext.request.contextPath}/user?method=post&orderId=${me.id}">${me.id}</a></td>
+            <td><a href="${pageContext.request.contextPath}/user?method=displayOrderInfo&orderId=${me.id}">${me.id}</a></td>
             <td>${me.orderTime}</td>
             <td>${me.price}</td>
             <td>${me.state}</td>
@@ -39,18 +41,29 @@
         </tr>
     </c:forEach>
 </table>
+&nbsp &nbsp &nbsp
+&nbsp &nbsp &nbsp
+&nbsp &nbsp &nbsp
+&nbsp &nbsp &nbsp
 
+<h2>Your Order Details</h2>
 
 <div>
     <table width="40%" border="1" style="text-align: center;">
-        <c:forEach var="me" items="${requestScope.get(\"theOrder\")}">
-            <td>${me.id}</td>
+        <tr>
+            <td>Book Name:</td>
+            <td>Unit Price:</td>
+            <td>Quantity:</td>
+            <%--<td>Order Status:</td>--%>
+        </tr>
+
+        <c:forEach var="me" items="${requestScope.get(\"BookList\")}">
+            <tr>
+                <td>${me.name}</td>
+            </tr>
         </c:forEach>
+
     </table>
 </div>
-
-
-
-
 </body>
 </html>
