@@ -60,6 +60,7 @@
         <c:forEach var="me" items="${requestScope.get(\"BookList\")}">
             <tr>
                 <td>${me.name}</td>
+                <td>${me.price}</td>
             </tr>
         </c:forEach>
 
