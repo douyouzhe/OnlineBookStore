@@ -48,4 +48,7 @@ public class OrderItem {
         this.quantity=cartItem.getQuantity();
         this.price=cartItem.getPrice();
     }
+    public OrderItem( )
+    {
+    }
 }

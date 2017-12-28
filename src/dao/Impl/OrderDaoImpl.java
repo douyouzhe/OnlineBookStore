@@ -8,9 +8,11 @@ import dao.OrderDao;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.BeanMapHandler;
 import utils.JdbcUtils;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class OrderDaoImpl implements OrderDao {
@@ -134,7 +136,13 @@ public class OrderDaoImpl implements OrderDao {
         try{
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "select book.* FROM book,orders,orderitem Where orders.id=? and orders.id=orderitem.order_id and orderitem.book_id=book.id";
-            return (List<Book>)runner.query(sql, new BeanListHandler(Book.class),id);
+            List<Book> bookList= (List<Book>)runner.query(sql, new BeanListHandler(Book.class),id);
+            QueryRunner runner2 = new QueryRunner(JdbcUtils.getDataSource());
+            String sql2 = "select orderitem.id,book.*,orderitem.quantity,orderitem.price FROM book,orders,orderitem Where orders.id=? and orders.id=orderitem.order_id and orderitem.book_id=book.id";
+            List<OrderItem> orderItemList= (List<OrderItem>)runner2.query(sql2, new BeanListHandler(OrderItem.class),id);
+            System.out.println(orderItemList.get(0).getBook().getName());
+
+            return bookList;
         } catch(Exception e){
             e.printStackTrace();
             throw new RuntimeException(e);
