@@ -123,12 +123,7 @@ public class BusinessServiceImpl implements BusinessService {
     {
         return orderDao.getAll(Boolean.parseBoolean(state),userId);
     }
-    public void mailed(String orderId)
-    {
-        Order order=orderDao.find(orderId);
-        order.setState(true);
-        orderDao.update(order);
-    }
+
     public List<Book> getAllBook(String id)
     {
         return orderDao.getAllBook(id);

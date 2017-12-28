@@ -13,11 +13,10 @@ public class UserDaoImpl implements UserDao {
     {
         try
         {
-            //System.out.println("before JdbcUtils.getDataSource(");
             QueryRunner run =new QueryRunner(JdbcUtils.getDataSource());
             String sql="insert into user(id,username,password,tel,email,address) values(?,?,?,?,?,?)";
             Object[] params = {user.getId(), user.getUsername(), user.getPassword(), user.getTel(),user.getEmail(),user.getAddress()};
-            //System.out.println("after JdbcUtils.getDataSource(");
+
 
             run.update(sql, params);
 

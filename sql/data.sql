@@ -12,7 +12,7 @@ create table book
 	  		price double not null,
 	 		  image varchar(100),
 	  		description varchar(255),
-	  		category_id varchar(40)
+	  		category_id varchar(40),
 	  		constraint category_id_FK foreign key(category_id) references category(id)
 	   );
 create table user
@@ -33,7 +33,7 @@ create table orders
 		user_id varchar(40),
 		constraint user_id_FK foreign key(user_id) references user(id)
 	);
-	
+
 create table orderitem
 	(
 		id varchar(40) primary key,

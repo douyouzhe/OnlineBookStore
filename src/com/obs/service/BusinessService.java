@@ -25,7 +25,7 @@ public interface BusinessService {
     List<Order> listOrder(String state);
     Order findOrder(String orderId);
     List<Order> listOrder(String userId,String state);
-    public void mailed(String orderId);
+
     public List<Order> listOrderForUser(String userId);
 
 

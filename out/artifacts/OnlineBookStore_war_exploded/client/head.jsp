@@ -140,7 +140,7 @@
     </div>
 
     <a href="${pageContext.request.contextPath }/user" height="50"><img src="${pageContext.request.contextPath }/icons/profile.png"class="post-thumb2" height="50"> <p1 class="post-left">User</p1> </a>
-    <a href="${pageContext.request.contextPath }/index.jsp" height="50"><img src="${pageContext.request.contextPath }/icons/logout.png"class="post-thumb" height="50"> <p1 class="post-left">Logout</p1> </a>
+    <a href="${pageContext.request.contextPath }/index.jsp" height="50"><img src="${pageContext.request.contextPath }/icons/logOut.png" class="post-thumb" height="50"> <p1 class="post-left">Logout</p1> </a>
 
 
 </div>

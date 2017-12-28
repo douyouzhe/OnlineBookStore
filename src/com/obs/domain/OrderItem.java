@@ -41,8 +41,6 @@ public class OrderItem {
         this.price = price;
     }
 
-    public  OrderItem()
-    {}
     public OrderItem( CartItem cartItem)
     {
         this.id= WebUtils.makeID();

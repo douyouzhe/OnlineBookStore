@@ -14,9 +14,7 @@ import com.obs.domain.Category;
 
 public class CategoryDaoImpl implements CategoryDao {
 
-    /* (non-Javadoc)
-     * @see dao.impl.CategoryDao#add(domain.Category)
-     */
+
     @Override
     public void add(Category category){
         try{
@@ -30,9 +28,6 @@ public class CategoryDaoImpl implements CategoryDao {
         }
     }
 
-    /* (non-Javadoc)
-     * @see dao.impl.CategoryDao#find(java.lang.String)
-     */
     @Override
     public Category find(String id){
         try {
@@ -45,9 +40,7 @@ public class CategoryDaoImpl implements CategoryDao {
         }
     }
 
-    /* (non-Javadoc)
-     * @see dao.impl.CategoryDao#getAll()
-     */
+
     @Override
     public List<Category> getAll(){
         try {

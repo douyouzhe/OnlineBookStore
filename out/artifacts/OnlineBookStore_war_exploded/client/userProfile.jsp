@@ -31,7 +31,7 @@
     </tr>
     <c:forEach var="me" items="${requestScope.get(\"order\")}">
         <tr>
-            <td><a href="${pageContext.request.contextPath}/user?method=listOrders&orderId=${me.id}">${me.id}</a></td>
+            <td><a href="${pageContext.request.contextPath}/user?method=post&orderId=${me.id}">${me.id}</a></td>
             <td>${me.orderTime}</td>
             <td>${me.price}</td>
             <td>${me.state}</td>
@@ -47,7 +47,6 @@
             <td>${me.id}</td>
         </c:forEach>
     </table>
-
 </div>
 
 

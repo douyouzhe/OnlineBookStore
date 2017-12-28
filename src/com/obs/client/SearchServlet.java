@@ -19,7 +19,6 @@ public class SearchServlet extends HttpServlet {
 
             BusinessServiceImpl service = new BusinessServiceImpl();
             Book book=service.findBookByName(bookName);
-            //System.out.println(book.getName());
             System.out.println(book.getPrice());
             request.setAttribute("showType", "searchResult");
             request.setAttribute("targetBook",book );

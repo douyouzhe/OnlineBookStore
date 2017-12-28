@@ -72,9 +72,7 @@ public class BookDaoImpl implements BookDao {
         }
     }
 
-    /* (non-Javadoc)
-     * @see dao.impl.BookDao#getAll()
-     */
+
     public List<Book> getPageData(int startindex, int pagesize, String category_id){
         try {
             startindex--;

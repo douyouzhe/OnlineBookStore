@@ -35,9 +35,7 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    /* (non-Javadoc)
-     * @see dao.impl.OrderDao#find(java.lang.String)
-     */
+
     public Order find(String id){
         try{
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
@@ -66,9 +64,6 @@ public class OrderDaoImpl implements OrderDao {
         }
     }
 
-    /* (non-Javadoc)
-     * @see dao.impl.OrderDao#getAll(boolean)
-     */
 
     public List<Order> getAll(boolean state){
         try{

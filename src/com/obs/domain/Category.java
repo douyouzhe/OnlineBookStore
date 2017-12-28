@@ -2,14 +2,7 @@ package com.obs.domain;
 
 
 public class Category {
-	/*
-	 create table category
-	 (
-		id varchar(40) primary key,
-		name varchar(100) not null unique,
-		description varchar(255)
-	 );
-	 */
+
 
     private String id;
     private String name;

@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet{
             }
             req.getSession().setAttribute("user",user);
 
-            //test only
+
 
 
 

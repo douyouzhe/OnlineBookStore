@@ -12,10 +12,10 @@ import javax.sql.DataSource;
 public class JdbcUtils {
 
     private static DataSource ds = null;
-    // only run for one time
+
     static{
         try {
-            //System.out.println("in static try");
+
             Context initCtx = new InitialContext();
             Context envCtx = (Context) initCtx.lookup("java:comp/env");
             ds = (DataSource) envCtx.lookup("jdbc/ConnectionPool");

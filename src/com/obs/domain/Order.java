@@ -61,14 +61,5 @@ public class Order {
         this.orderItems = orderItems;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id='" + id + '\'' +
-                ", orderTime=" + orderTime +
-                ", price=" + price +
-                ", state=" + state +
-                ", orderItems=" + orderItems +
-                '}';
-    }
+
 }
