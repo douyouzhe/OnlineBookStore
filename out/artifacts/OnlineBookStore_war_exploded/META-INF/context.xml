@@ -14,5 +14,5 @@
               wait_timeout = "50"
               interactive_timeout ="50"
               connect_timeout = "50"
-              url="jdbc:mysql://db4free.net:3306/onlinebookstore"/>
+              url="jdbc:mysql://db4free.net:3306/onlinebookstore?useSSL=false"/>
 </Context>

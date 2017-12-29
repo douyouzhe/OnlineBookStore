@@ -9,6 +9,7 @@ public class OrderItem {
     private int quantity;
     private double price;
 
+
     public String getId() {
         return id;
     }
@@ -41,7 +42,8 @@ public class OrderItem {
         this.price = price;
     }
 
-    public OrderItem( CartItem cartItem)
+
+    public OrderItem(CartItem cartItem)
     {
         this.id= WebUtils.makeID();
         this.book=cartItem.getBook();

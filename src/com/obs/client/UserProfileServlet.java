@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class UserProfileServlet extends HttpServlet{
@@ -22,7 +23,7 @@ public class UserProfileServlet extends HttpServlet{
             throws ServletException,IOException{
         BusinessServiceImpl service = new BusinessServiceImpl();
         String orderId= req.getParameter("orderId");
-        List<Book> ls= service.getAllBook(orderId);
+        Map<String,Integer> ls= service.getAllBook(orderId);
         System.out.print(ls.size());
         req.setAttribute("BookList",ls);
         User user = (User) req.getSession().getAttribute("user");

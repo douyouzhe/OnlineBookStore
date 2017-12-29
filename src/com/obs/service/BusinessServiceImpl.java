@@ -69,7 +69,7 @@ public class BusinessServiceImpl implements BusinessService {
                 page.getPagesize(),category_id);
 
         //System.out.println(ls.size());
-        //System.out.println(ls.size());
+        System.out.println(ls.size());
         page.setList(ls);
 
         return page;
@@ -124,7 +124,7 @@ public class BusinessServiceImpl implements BusinessService {
         return orderDao.getAll(Boolean.parseBoolean(state),userId);
     }
 
-    public List<Book> getAllBook(String id)
+    public Map<String,Integer> getAllBook(String id)
     {
         return orderDao.getAllBook(id);
     }

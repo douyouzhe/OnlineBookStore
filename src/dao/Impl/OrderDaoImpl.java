@@ -8,9 +8,12 @@ import dao.OrderDao;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.apache.commons.dbutils.handlers.BeanMapHandler;
 import utils.JdbcUtils;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -131,18 +134,25 @@ public class OrderDaoImpl implements OrderDao {
             throw new RuntimeException(e);
         }
     }
-    public List<Book> getAllBook(String id)
+    public Map<String,Integer> getAllBook(String id)
     {
         try{
-            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "select book.* FROM book,orders,orderitem Where orders.id=? and orders.id=orderitem.order_id and orderitem.book_id=book.id";
-            List<Book> bookList= (List<Book>)runner.query(sql, new BeanListHandler(Book.class),id);
-            QueryRunner runner2 = new QueryRunner(JdbcUtils.getDataSource());
-            String sql2 = "select orderitem.id,book.*,orderitem.quantity,orderitem.price FROM book,orders,orderitem Where orders.id=? and orders.id=orderitem.order_id and orderitem.book_id=book.id";
-            List<OrderItem> orderItemList= (List<OrderItem>)runner2.query(sql2, new BeanListHandler(OrderItem.class),id);
-            System.out.println(orderItemList.get(0).getBook().getName());
+            String sql2 = "select book.name, orderitem.quantity FROM book,orders,orderitem Where orders.id='" +id+
+                    "' and orders.id=orderitem.order_id and orderitem.book_id=book.id";
 
-            return bookList;
+            Connection connect = JdbcUtils.getDataSource().getConnection();
+            Statement st = connect.createStatement();
+            ResultSet rs = st.executeQuery(sql2);
+            Map<String,Integer> map = new HashMap<>();
+
+            while(rs.next()){
+                String name = rs.getString(1);
+                int amount = rs.getInt(2);
+                map.put(name,amount);
+            }
+            connect.close();
+            rs.close();
+            return map;
         } catch(Exception e){
             e.printStackTrace();
             throw new RuntimeException(e);

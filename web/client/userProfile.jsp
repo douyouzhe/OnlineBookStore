@@ -52,15 +52,15 @@
     <table width="40%" border="1" style="text-align: center;">
         <tr>
             <td>Book Name:</td>
-            <td>Unit Price:</td>
+            <%--<td>Unit Price:</td>--%>
             <td>Quantity:</td>
             <%--<td>Order Status:</td>--%>
         </tr>
 
         <c:forEach var="me" items="${requestScope.get(\"BookList\")}">
             <tr>
-                <td>${me.name}</td>
-                <td>${me.price}</td>
+                <td>${me.key}</td>
+                <td>${me.value}</td>
             </tr>
         </c:forEach>
 
