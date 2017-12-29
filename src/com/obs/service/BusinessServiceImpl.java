@@ -124,7 +124,7 @@ public class BusinessServiceImpl implements BusinessService {
         return orderDao.getAll(Boolean.parseBoolean(state),userId);
     }
 
-    public List<BookItem> getAllBook(String id)
+    public Map<String,Integer> getAllBook(String id)
     {
         return orderDao.getAllBook(id);
     }

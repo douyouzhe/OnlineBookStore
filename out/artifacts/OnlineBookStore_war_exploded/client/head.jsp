@@ -171,7 +171,7 @@
                     <table>
 
                         <td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
-                            <td><p1 style="font-size:100%;color:black;"class="post-left">${thisBook.name} <br> $${thisBook.price}</p1></td>
+                        <td><p1 style="font-size:100%;color:black;"class="post-left"><a  href="${pageContext.request.contextPath }/book?thisBook=${thisBook}">${thisBook.name}</a> <br> $${thisBook.price}</p1></td>
 
                         <td>&nbsp &nbsp &nbsp
                         </td>

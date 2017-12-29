@@ -15,7 +15,7 @@
               wait_timeout = "50"
               interactive_timeout ="50"
               connect_timeout = "50"
-<<<<<<< HEAD
+
               />
 </Context>
 
@@ -25,7 +25,3 @@
         <!--username="obscbydyz"-->
         <!--password="rootroot"-->
         <!--url="jdbc:mysql://db4free.net:3306/onlinebookstore"-->
-=======
-              url="jdbc:mysql://db4free.net:3306/onlinebookstore?useSSL=false"/>
-</Context>
->>>>>>> 9831bb28a526481afddcb29301a760edd6245fe7
