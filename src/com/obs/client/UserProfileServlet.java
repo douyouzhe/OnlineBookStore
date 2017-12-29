@@ -1,9 +1,6 @@
 package com.obs.client;
 
-import com.obs.domain.Book;
-import com.obs.domain.Order;
-import com.obs.domain.OrderItem;
-import com.obs.domain.User;
+import com.obs.domain.*;
 import com.obs.service.BusinessServiceImpl;
 
 import javax.servlet.ServletException;
@@ -22,7 +19,7 @@ public class UserProfileServlet extends HttpServlet{
             throws ServletException,IOException{
         BusinessServiceImpl service = new BusinessServiceImpl();
         String orderId= req.getParameter("orderId");
-        List<Book> ls= service.getAllBook(orderId);
+        List<BookItem> ls= service.getAllBook(orderId);
         System.out.print(ls.size());
         req.setAttribute("BookList",ls);
         User user = (User) req.getSession().getAttribute("user");
