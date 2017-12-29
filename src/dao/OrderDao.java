@@ -18,6 +18,6 @@ public interface OrderDao {
 
 	List<Order> getAll(boolean state, String userid);
 
-	List<Book> getAllBook(String id);
+	Map<String, Integer> getAllBook(String id);
 	 List<Order> getAllOrder(String userid);
 }
