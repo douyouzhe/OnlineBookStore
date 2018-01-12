@@ -7,11 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7bb72cca-f13e-4ecf-b29f-bfec3a6e56a5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/icons/addToCartW.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/icons/homepageW.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/icons/userW.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/obs/client/ReviewServlet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/client/bookReview.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/WEB-INF/classes/com/obs/client/BookDetailServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/WEB-INF/classes/com/obs/client/BookDetailServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/WEB-INF/classes/com/obs/client/SearchServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/WEB-INF/classes/com/obs/client/SearchServlet.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/WEB-INF/classes/com/obs/client/UserProfileServlet.class" afterPath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/WEB-INF/classes/com/obs/client/UserProfileServlet.class" />
@@ -29,18 +24,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/client/bookDetail.jsp" afterPath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/client/bookDetail.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/client/head.jsp" afterPath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/client/head.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/client/userProfile.jsp" afterPath="$PROJECT_DIR$/out/artifacts/OnlineBookStore_war_exploded/client/userProfile.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/data.sql" afterPath="$PROJECT_DIR$/sql/data.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/obs/client/BookDetailServlet.java" afterPath="$PROJECT_DIR$/src/com/obs/client/BookDetailServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/obs/client/SearchServlet.java" afterPath="$PROJECT_DIR$/src/com/obs/client/SearchServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/obs/client/UserProfileServlet.java" afterPath="$PROJECT_DIR$/src/com/obs/client/UserProfileServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/obs/domain/Book.java" afterPath="$PROJECT_DIR$/src/com/obs/domain/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/obs/service/BusinessServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/obs/service/BusinessServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/dao/Impl/BookDaoImpl.java" afterPath="$PROJECT_DIR$/src/dao/Impl/BookDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/META-INF/context.xml" afterPath="$PROJECT_DIR$/web/META-INF/context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/client/bookDetail.jsp" afterPath="$PROJECT_DIR$/web/client/bookDetail.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/client/head.jsp" afterPath="$PROJECT_DIR$/web/client/head.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/client/userProfile.jsp" afterPath="$PROJECT_DIR$/web/client/userProfile.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -587,7 +570,7 @@
       <workItem from="1514407291250" duration="1872000" />
       <workItem from="1514496295327" duration="420000" />
       <workItem from="1515618762849" duration="5114000" />
-      <workItem from="1515703441522" duration="26987000" />
+      <workItem from="1515703441522" duration="27003000" />
     </task>
     <task id="LOCAL-00001" summary="fuck u">
       <created>1511574215191</created>
@@ -680,11 +663,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513963320613</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="2">
+      <created>1515732494214</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1515732494214</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118290000" />
+    <option name="totallyTimeSpent" value="118306000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
