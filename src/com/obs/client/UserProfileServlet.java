@@ -21,7 +21,6 @@ public class UserProfileServlet extends HttpServlet{
         BusinessServiceImpl service = new BusinessServiceImpl();
         String orderId= req.getParameter("orderId");
         Map<String,Integer> ls= service.getAllBook(orderId);
-        System.out.print(ls.size());
         req.setAttribute("BookList",ls);
         User user = (User) req.getSession().getAttribute("user");
         req.setAttribute("username", user.getUsername());
@@ -29,6 +28,8 @@ public class UserProfileServlet extends HttpServlet{
         req.setAttribute("tel", user.getTel());
         req.setAttribute("email", user.getEmail());
         req.setAttribute("id", user.getId());
+        req.setAttribute("orderId",orderId );
+        req.setAttribute("bookListFlag","1");
         service = new BusinessServiceImpl();
         List<Order> order;
         order = service.listOrderForUser(user.getId());

@@ -22,7 +22,9 @@ public class BookDetailServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try{
-            Book book=(Book)req.getAttribute("thisBook");
+            String bookid=req.getParameter("thisBookID");
+            BusinessServiceImpl service=new BusinessServiceImpl();
+            Book book=service.findBook(bookid);
             req.setAttribute("book",book);
             req.getRequestDispatcher("/client/bookDetail.jsp").forward(req,resp);
         }catch(Exception e){

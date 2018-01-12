@@ -10,6 +10,17 @@ public class Book {
     private String image;
     private String description;
     private int category_id;
+    private int storage;
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
+    private String language;
 
     public String getId() {
         return id;
@@ -21,6 +32,15 @@ public class Book {
 
     public String getName() {
         return name;
+    }
+
+    public void setStorage(int storage) {
+        this.storage = storage;
+    }
+
+    public int getStorage() {
+
+        return storage;
     }
 
     public void setName(String name) {

@@ -32,6 +32,7 @@
         }
         a{
             text-decoration: none;
+            color:white;
 
         }
         a:hover { text-decoration:underline;color: gray}
@@ -112,6 +113,29 @@
             border: none;
             cursor: pointer;
         }
+        .bw{
+            text-align:center;
+            background-color:black;
+            color:white
+        }
+        p2
+        {
+            color:#1296db;
+            font-size:15px;
+
+        }
+        p4
+        {
+            color: antiquewhite;
+            font-size:8px;
+            padding-right: 20px;
+        }
+        p5
+        {
+            color:#8992c8;
+            font-size:10px;
+
+        }
 
 
 
@@ -145,9 +169,9 @@
 
 </div>
 
-<div id="body" style="text-align:center;background-color:white;width:100%;height:1000px">
+<div id="body" style="text-align:center;background-color:black;color:white;width:100%;height:1000px">
     <div id="content" style="margin:0;width:100%">
-        <div id="Categories" style="float:left;width:300px;background-color:black; color:white; font-family: Fantasy; font-size:150%;border:0px;text-align:left;height:100%;">
+        <div id="Categories" style="float:left;padding-left:50px; width:300px;background-color:black; color:white; font-family: Fantasy; font-size:150%;border:0px;text-align:left;height:100%;">
             <h2><img src="${pageContext.request.contextPath }/icons/categories.png" width="35" height="35" class="left">  Categories:</h2>
 
             <ul>
@@ -167,16 +191,15 @@
         <div>
         <ul>
             <c:forEach var="thisBook" items="${page.list}">
-                <li>
-                    <table>
+                <li style="list-style-type:none;">
+                    <table border= "1 " width="60%" rules="none" align="center">
 
-                        <td><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
-                        <td><p1 style="font-size:100%;color:black;"class="post-left"><a  href="${pageContext.request.contextPath }/book?thisBook=${thisBook}">${thisBook.name}</a> <br> $${thisBook.price}</p1></td>
+                        <td width="40%"><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
+                        <td width="30%">><a  href="${pageContext.request.contextPath }/book?thisBookID=${thisBook.id}">${thisBook.name}</a> <br> $${thisBook.price}</td>
 
-                        <td>&nbsp &nbsp &nbsp
-                        </td>
-                    <td>
-                        <a href="${pageContext.request.contextPath }/addToCart?bookId=${thisBook.id}" style="color:black; "> <img src="${pageContext.request.contextPath }/icons/addToCart.png"  class="post-thumb" height="30"> &nbsp add to cart</a>
+
+                    <td width="30%">
+                        &nbsp;<a href="${pageContext.request.contextPath }/addToCart?bookId=${thisBook.id}" style="color:black; "> <img src="${pageContext.request.contextPath }/icons/addToCartW.png" height="30"> <p2>add to cart &nbsp </p2><p5>(${thisBook.storage}left)</p5></a>
                     </td>
 
                     </table>
@@ -184,31 +207,36 @@
             </c:forEach>
         </ul>
         </div>
+
         <div id="page" style="margin-top:20px; text-align:center;">
            current page: &nbsp;[${page.curPage }]&nbsp;
             <c:forEach var="curPage" begin="${page.startpage }" end="${page.endpage }">
                 <a href="${pageContext.request.contextPath }/index?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }</a>
             </c:forEach>
 
-            total pages:${page.totalpage }&nbsp;&nbsp;&nbsp;${page.totalrecord }books in list
+            total pages:${page.totalpage }<br>${page.totalrecord }&nbsp;books in list
         </div>
+
         </c:if>
 <c:if test="${showType=='searchResult'}">
 
     <table>
 
-    <td><image src="${pageContext.request.contextPath}${targetBook.image}" width="230" height="270" class="post-thumb"></image> </td>
-    <td><p1 style="font-size:100%;color:black;"class="post-left">${targetBook.name} <br> $${targetBook.price}</p1></td>
+    <td width="40%" rules="none"><image src="${pageContext.request.contextPath}${targetBook.image}" width="230" height="270" class="post-thumb"></image> </td>
+        <td width="30%">><a  href="${pageContext.request.contextPath }/book?thisBookID=${targetBook.id}">${targetBook.name}</a> <br> $${targetBook.price}</td>
 
-    <td>&nbsp &nbsp &nbsp
-    </td>
-    <td>
-    <a href="${pageContext.request.contextPath }/addToCart?bookId=${targetBoook.id}" style="color:black; "> <img src="${pageContext.request.contextPath }/icons/addToCart.png"  class="post-thumb" height="30"> &nbsp add to cart</a>
+    <td width="30%">
+
+        &nbsp;<a href="${pageContext.request.contextPath }/addToCart?bookId=${targetBook.id}" style="color:white; "> <img src="${pageContext.request.contextPath }/icons/addToCart.png"  class="post-thumb" height="30"> <img src="${pageContext.request.contextPath }/icons/addToCartW.png" height="30"> <p2>add to cart &nbsp </p2><p5>(${thisBook.storage}left)</p5></a>
+
     </td>
 
     </table>
 </c:if>
     </div>
+    <img src="${pageContext.request.contextPath }/icons/dividingLine.png" width=100% height="80" class="center" >
+    <p4>Prices and offers are subject to change.</p4><br>
+    <p4>Conditions of UsePrivacy NoticeInterest-Based Ads© 1996-2017, C&D.com, Inc. or its affiliates</p4>
 </div>
 
 </body>
