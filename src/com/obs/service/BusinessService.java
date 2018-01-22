@@ -28,5 +28,4 @@ public interface BusinessService {
 
     public List<Order> listOrderForUser(String userId);
 
-
 }

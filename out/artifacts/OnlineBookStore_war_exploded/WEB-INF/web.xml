@@ -89,14 +89,23 @@
         <servlet-name>user</servlet-name>
         <url-pattern>/user</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>book</servlet-name>
         <servlet-class>com.obs.client.BookDetailServlet</servlet-class>
-
     </servlet>
     <servlet-mapping>
         <servlet-name>book</servlet-name>
         <url-pattern>/book</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>review</servlet-name>
+        <servlet-class>com.obs.client.ReviewServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>review</servlet-name>
+        <url-pattern>/review</url-pattern>
     </servlet-mapping>
 
 

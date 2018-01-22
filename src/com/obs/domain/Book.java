@@ -12,6 +12,16 @@ public class Book {
     private int category_id;
     private int storage;
 
+    public int getSales() {
+        return sales;
+    }
+
+    public void setSales(int sales) {
+        this.sales = sales;
+    }
+
+    private int sales;
+
     public String getLanguage() {
         return language;
     }

@@ -101,7 +101,6 @@ public class BusinessServiceImpl implements BusinessService {
         {
             itemSet.add(new OrderItem(thisCartItem));
         }
-
         order.setOrderItems(itemSet);
         order.setId(WebUtils.makeID());
         order.setOrderTime(new Date());
@@ -131,4 +130,5 @@ public class BusinessServiceImpl implements BusinessService {
     {
         return orderDao.getAllOrder(userId);
     }
+
 }
