@@ -131,4 +131,59 @@ public class BusinessServiceImpl implements BusinessService {
     {
         return orderDao.getAllOrder(userId);
     }
+    /*
+	takes two inputs:
+	user: userId and OrderInfoByCategory
+	ls: list of the rest users and their OrderInfoByCategory
+ 	return userId of the mostSimilarUser (String)
+ */
+    public String mostSimilarUser(List<OrderInfoByCategory> ls,String userId){
+
+        // max is actually min euclidean distance,
+        // so trying to find the min value
+        int maxMatchScore = Integer.MAX_VALUE;
+        String mostSimilarUser = null;
+
+        int[] orderAmount= new int[10];
+        int[] orderAmountUser= new int[10];
+        orderAmountUser = getInfoMatrix(ls,userId);
+        List<User> userList=userDao.findAllUsers();
+        for(User oibc: userList){
+            if(oibc.getId()!=userId)
+            {
+                int euclideanDistance = 0;
+                orderAmount = getInfoMatrix(ls, oibc.getId());
+                for (int i = 0; i < 10; i++) {
+                    int tmp = (orderAmount[i] - orderAmountUser[i]) * (orderAmount[i] - orderAmountUser[i]);
+                    euclideanDistance += tmp;
+                }
+                if (euclideanDistance < maxMatchScore) {
+                    maxMatchScore = euclideanDistance;
+                    mostSimilarUser = oibc.getId();
+                }
+            }
+        }
+        return mostSimilarUser;
+    }
+    public List<Book> Recommend(String userId)
+    {
+
+        List<OrderInfoByCategory> ls=orderDao.getCategoryOrderInfo();
+        String userId2=mostSimilarUser(ls,userId);
+        return bookDao.recommendedBook(userId,userId2);
+
+    }
+    public int[] getInfoMatrix(List<OrderInfoByCategory> ls,String userId)
+    {
+        int[] res=new int[10];
+        for(int i=0;i<ls.size();i++)
+        {
+            if(ls.get(i).getUserId()==userId)
+            {
+                res[ls.get(i).getCategory()-1]=ls.get(i).getAmount();
+            }
+        }
+
+            return res;
+    }
 }

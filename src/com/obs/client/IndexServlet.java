@@ -1,8 +1,10 @@
 package com.obs.client;
 
 
+import com.obs.domain.Book;
 import com.obs.domain.Category;
 import com.obs.domain.Page;
+import com.obs.domain.User;
 import com.obs.service.BusinessServiceImpl;
 
 import javax.servlet.ServletException;
@@ -49,6 +51,8 @@ public class IndexServlet extends HttpServlet {
 
         BusinessServiceImpl service=new BusinessServiceImpl();
         List<Category> categories=service.getAllCategory();
+        User user=(User)request.getSession().getAttribute("user");
+        List<Book> bookList=service.Recommend(user.getId());
         request.setAttribute("categories",categories);
         request.setAttribute("showType", "category");
         String curPage=request.getParameter("curPage");

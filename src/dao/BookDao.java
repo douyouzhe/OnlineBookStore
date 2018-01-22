@@ -19,5 +19,5 @@ public interface BookDao {
 	public List<Book> getPageData(int startindex, int pagesize, String category_id);
 	
 	public int getTotalRecord(String category_id);
-
+	List<Book> recommendedBook(String id,String id2);
 }

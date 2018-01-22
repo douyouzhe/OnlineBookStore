@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.obs.domain.Book;
 import com.obs.domain.Order;
+import com.obs.domain.OrderInfoByCategory;
 
 public interface OrderDao {
 
@@ -20,4 +21,5 @@ public interface OrderDao {
 
 	Map<String, Integer> getAllBook(String id);
 	 List<Order> getAllOrder(String userid);
+	List<OrderInfoByCategory> getCategoryOrderInfo();
 }

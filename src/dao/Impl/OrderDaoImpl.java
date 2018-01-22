@@ -1,9 +1,6 @@
 package dao.Impl;
 
-import com.obs.domain.Book;
-import com.obs.domain.Order;
-import com.obs.domain.OrderItem;
-import com.obs.domain.User;
+import com.obs.domain.*;
 import dao.OrderDao;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -115,6 +112,17 @@ public class OrderDaoImpl implements OrderDao {
                 User user = (User) runner.query(sql, new BeanHandler(User.class), userid);
                 order.setUser(user);
             }
+            return list;
+        } catch(Exception e){
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    public List<OrderInfoByCategory> getCategoryOrderInfo(){
+        try{
+            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            String sql = "select orders.user_id,Book.category_id,sum(orderitem.quantity) as amount FROM orders,orderitem,book Where orders.id=orderitem.order_id  and orderitem.book_id=book.id group by book.category_id,orders.user_id order by user_id";
+            List<OrderInfoByCategory> list = (List<OrderInfoByCategory>) runner.query(sql, new BeanListHandler(OrderInfoByCategory.class));
             return list;
         } catch(Exception e){
             e.printStackTrace();

@@ -8,8 +8,13 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 import utils.JdbcUtils;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class BookDaoImpl implements BookDao {
     public void add(Book book){
@@ -96,6 +101,30 @@ public class BookDaoImpl implements BookDao {
             long totalRecord = (Long)runner.query(sql, new ScalarHandler(), category_id);
             return (int)totalRecord;
         } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    public List<Book> getBookByUser(String id)
+    {
+        try{
+            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            String sql = "select book.* FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=?";
+
+            return (List<Book>)runner.query(sql, new BeanListHandler(Book.class), id);
+        } catch(Exception e){
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+    public List<Book> recommendedBook(String id,String id2)
+    {
+        try{
+            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            String sql = "select unique book.* FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? and book.id not in (select book.* FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? order by sales DESC)";
+
+            return (List<Book>)runner.query(sql, new BeanListHandler(Book.class), id);
+        } catch(Exception e){
             e.printStackTrace();
             throw new RuntimeException(e);
         }
