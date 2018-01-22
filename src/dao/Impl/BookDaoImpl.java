@@ -100,4 +100,19 @@ public class BookDaoImpl implements BookDao {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void updateRecord(String bookId, int storage, int sales) {
+        try {
+            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            String sql = "update book set storage=?, sales=? where id=?";
+            Object params[] = {storage, sales,bookId};
+            runner.update(sql,params);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+    }
 }

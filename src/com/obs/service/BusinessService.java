@@ -26,6 +26,6 @@ public interface BusinessService {
     Order findOrder(String orderId);
     List<Order> listOrder(String userId,String state);
 
-    public List<Order> listOrderForUser(String userId);
+    List<Order> listOrderForUser(String userId);
 
 }

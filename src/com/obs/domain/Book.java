@@ -11,6 +11,9 @@ public class Book {
     private String description;
     private int category_id;
     private int storage;
+    private int sales;
+
+
 
     public int getSales() {
         return sales;
@@ -20,7 +23,7 @@ public class Book {
         this.sales = sales;
     }
 
-    private int sales;
+
 
     public String getLanguage() {
         return language;

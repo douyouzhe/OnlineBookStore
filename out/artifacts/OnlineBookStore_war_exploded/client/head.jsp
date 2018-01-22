@@ -236,7 +236,7 @@
     </div>
     <img src="${pageContext.request.contextPath }/icons/dividingLine.png" width=100% height="80" class="center" >
     <p4>Prices and offers are subject to change.</p4><br>
-    <p4>Conditions of UsePrivacy NoticeInterest-Based Ads© 1996-2017, C&D.com, Inc. or its affiliates</p4>
+    <p4>Conditions of UsePrivacy NoticeInterest-Based Ads© 1996-2019, C&D.com, Inc. or its affiliates</p4>
 </div>
 
 </body>

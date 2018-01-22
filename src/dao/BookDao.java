@@ -12,12 +12,16 @@ public interface BookDao {
 
 	Book findByName(String bookName);
 	
-	public List<Book> getPageData(int startindex, int pagesize);
+	List<Book> getPageData(int startindex, int pagesize);
 	
-	public int getTotalRecord();
+	int getTotalRecord();
 
-	public List<Book> getPageData(int startindex, int pagesize, String category_id);
+	List<Book> getPageData(int startindex, int pagesize, String category_id);
 	
-	public int getTotalRecord(String category_id);
+	int getTotalRecord(String category_id);
+
+	void updateRecord(String bookId, int storage, int sales);
+
+
 
 }

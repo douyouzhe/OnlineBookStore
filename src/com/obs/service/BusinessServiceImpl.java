@@ -100,6 +100,18 @@ public class BusinessServiceImpl implements BusinessService {
         for(CartItem thisCartItem:map.values())
         {
             itemSet.add(new OrderItem(thisCartItem));
+            Book bk = new Book();
+            bk = thisCartItem.getBook();
+            int storage = bk.getStorage();
+            int sales = bk.getSales();
+
+
+            storage -= thisCartItem.getQuantity();
+            sales += thisCartItem.getQuantity();
+
+
+            bookDao.updateRecord(bk.getId(),storage,sales);
+
         }
         order.setOrderItems(itemSet);
         order.setId(WebUtils.makeID());
