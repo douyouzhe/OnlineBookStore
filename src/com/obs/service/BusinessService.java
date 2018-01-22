@@ -25,8 +25,13 @@ public interface BusinessService {
     List<Order> listOrder(String state);
     Order findOrder(String orderId);
     List<Order> listOrder(String userId,String state);
+<<<<<<< HEAD
     List<Book> Recommend(String userId);
     public List<Order> listOrderForUser(String userId);
 
+=======
+
+    List<Order> listOrderForUser(String userId);
+>>>>>>> 98b8199503adcbf72ad1dc1cf4265895ade30457
 
 }

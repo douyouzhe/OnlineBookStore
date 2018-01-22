@@ -100,8 +100,19 @@ public class BusinessServiceImpl implements BusinessService {
         for(CartItem thisCartItem:map.values())
         {
             itemSet.add(new OrderItem(thisCartItem));
-        }
+            Book bk = new Book();
+            bk = thisCartItem.getBook();
+            int storage = bk.getStorage();
+            int sales = bk.getSales();
 
+
+            storage -= thisCartItem.getQuantity();
+            sales += thisCartItem.getQuantity();
+
+
+            bookDao.updateRecord(bk.getId(),storage,sales);
+
+        }
         order.setOrderItems(itemSet);
         order.setId(WebUtils.makeID());
         order.setOrderTime(new Date());
@@ -131,6 +142,7 @@ public class BusinessServiceImpl implements BusinessService {
     {
         return orderDao.getAllOrder(userId);
     }
+<<<<<<< HEAD
     /*
 	takes two inputs:
 	user: userId and OrderInfoByCategory
@@ -186,4 +198,7 @@ public class BusinessServiceImpl implements BusinessService {
 
             return res;
     }
+=======
+
+>>>>>>> 98b8199503adcbf72ad1dc1cf4265895ade30457
 }

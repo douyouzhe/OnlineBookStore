@@ -4,6 +4,7 @@ package dao.Impl;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.obs.domain.Book;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -52,5 +53,6 @@ public class CategoryDaoImpl implements CategoryDao {
             throw new RuntimeException(ex);
         }
     }
+
 
 }

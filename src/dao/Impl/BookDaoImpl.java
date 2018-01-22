@@ -105,6 +105,7 @@ public class BookDaoImpl implements BookDao {
             throw new RuntimeException(e);
         }
     }
+<<<<<<< HEAD
     public List<Book> getBookByUser(String id)
     {
         try{
@@ -128,5 +129,21 @@ public class BookDaoImpl implements BookDao {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
+=======
+
+    @Override
+    public void updateRecord(String bookId, int storage, int sales) {
+        try {
+            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            String sql = "update book set storage=?, sales=? where id=?";
+            Object params[] = {storage, sales,bookId};
+            runner.update(sql,params);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+>>>>>>> 98b8199503adcbf72ad1dc1cf4265895ade30457
     }
 }
