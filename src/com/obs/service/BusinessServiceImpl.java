@@ -142,7 +142,7 @@ public class BusinessServiceImpl implements BusinessService {
     {
         return orderDao.getAllOrder(userId);
     }
-<<<<<<< HEAD
+
     /*
 	takes two inputs:
 	user: userId and OrderInfoByCategory
@@ -159,12 +159,14 @@ public class BusinessServiceImpl implements BusinessService {
         int[] orderAmount= new int[10];
         int[] orderAmountUser= new int[10];
         orderAmountUser = getInfoMatrix(ls,userId);
+
         List<User> userList=userDao.findAllUsers();
         for(User oibc: userList){
             if(oibc.getId()!=userId)
             {
                 int euclideanDistance = 0;
                 orderAmount = getInfoMatrix(ls, oibc.getId());
+                System.out.println(ls.toString());
                 for (int i = 0; i < 10; i++) {
                     int tmp = (orderAmount[i] - orderAmountUser[i]) * (orderAmount[i] - orderAmountUser[i]);
                     euclideanDistance += tmp;
@@ -181,6 +183,7 @@ public class BusinessServiceImpl implements BusinessService {
     {
 
         List<OrderInfoByCategory> ls=orderDao.getCategoryOrderInfo();
+
         String userId2=mostSimilarUser(ls,userId);
         return bookDao.recommendedBook(userId,userId2);
 
@@ -190,15 +193,15 @@ public class BusinessServiceImpl implements BusinessService {
         int[] res=new int[10];
         for(int i=0;i<ls.size();i++)
         {
-            if(ls.get(i).getUserId()==userId)
+            if(ls.get(i).getUser_id()==userId)
             {
-                res[ls.get(i).getCategory()-1]=ls.get(i).getAmount();
-            }
+            res[ls.get(i).getCategory_id()-1]=ls.get(i).getAmount();
+        }
         }
 
             return res;
     }
-=======
 
->>>>>>> 98b8199503adcbf72ad1dc1cf4265895ade30457
+
+
 }

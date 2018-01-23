@@ -105,7 +105,7 @@ public class BookDaoImpl implements BookDao {
             throw new RuntimeException(e);
         }
     }
-<<<<<<< HEAD
+
     public List<Book> getBookByUser(String id)
     {
         try{
@@ -118,21 +118,19 @@ public class BookDaoImpl implements BookDao {
             throw new RuntimeException(e);
         }
     }
-    public List<Book> recommendedBook(String id,String id2)
-    {
-        try{
+    public List<Book> recommendedBook(String id,String id2) {
+        try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "select unique book.* FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? and book.id not in (select book.* FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? order by sales DESC)";
-
-            return (List<Book>)runner.query(sql, new BeanListHandler(Book.class), id);
-        } catch(Exception e){
+            String sql = "select distinct book.* FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? and book.id not in (select book.id FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? )\n";
+            Object params[] = {id, id2};
+            return (List<Book>) runner.query(sql, new BeanListHandler(Book.class), params);
+        } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
-=======
+    }
 
-    @Override
-    public void updateRecord(String bookId, int storage, int sales) {
+    public void updateRecord(String bookId, int storage, int sales){
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
             String sql = "update book set storage=?, sales=? where id=?";
@@ -144,6 +142,5 @@ public class BookDaoImpl implements BookDao {
             throw new RuntimeException(e);
         }
 
->>>>>>> 98b8199503adcbf72ad1dc1cf4265895ade30457
     }
 }
