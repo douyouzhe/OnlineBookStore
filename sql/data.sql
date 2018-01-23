@@ -216,7 +216,7 @@ insert into book values ('6','A Natural Woman: A Memoir',
 
 insert into book values ('7','A People''s History of the United States',
 'Howard Zinn',10.97,
-'images/bookImages/A-Peoples-History-of-the-United States.jpg','Known for its lively, clear prose as well as its scholarly research, A People''s History of the United States is the only volume to tell America''s story from the point of view of -- and in the words of -- America''s women, factory workers, African Americans, Native Americans, working poor, and immigrant laborers.','English','50','0','5');
+'images/bookImages/A-Peoples-History-of-the-United States.jpg',' A People''s History of the United States is the only volume to tell America''s story from the point of view of -- and in the words of -- America''s women, factory workers, African Americans, Native Americans, working poor, and immigrant laborers.','English','50','0','5');
 
 insert into book values ('8','The Girl Who Lived: A Thrilling Suspense Novel',
 'Christopher Greyson',11.69,

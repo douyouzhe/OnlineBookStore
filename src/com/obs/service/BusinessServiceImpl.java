@@ -162,11 +162,11 @@ public class BusinessServiceImpl implements BusinessService {
 
         List<User> userList=userDao.findAllUsers();
         for(User oibc: userList){
-            if(oibc.getId()!=userId)
+            if(!oibc.getId().equals(userId))
             {
                 int euclideanDistance = 0;
                 orderAmount = getInfoMatrix(ls, oibc.getId());
-                System.out.println(ls.toString());
+
                 for (int i = 0; i < 10; i++) {
                     int tmp = (orderAmount[i] - orderAmountUser[i]) * (orderAmount[i] - orderAmountUser[i]);
                     euclideanDistance += tmp;
@@ -193,10 +193,10 @@ public class BusinessServiceImpl implements BusinessService {
         int[] res=new int[10];
         for(int i=0;i<ls.size();i++)
         {
-            if(ls.get(i).getUser_id()==userId)
+            if(ls.get(i).getUser_id().equals(userId))
             {
-            res[ls.get(i).getCategory_id()-1]=ls.get(i).getAmount();
-        }
+                res[ls.get(i).getCategory_id()-1]=ls.get(i).getAmount();
+            }
         }
 
             return res;

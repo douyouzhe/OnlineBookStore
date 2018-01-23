@@ -121,7 +121,7 @@ public class BookDaoImpl implements BookDao {
     public List<Book> recommendedBook(String id,String id2) {
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "select distinct book.* FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? and book.id not in (select book.id FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? )\n";
+            String sql = "select distinct book.* FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? and book.id not in (select book.id FROM book,orders,orderitem Where orders.id=orderitem.order_id and orderitem.book_id=book.id and orders.user_id=? ) order by book.sales DESC";
             Object params[] = {id, id2};
             return (List<Book>) runner.query(sql, new BeanListHandler(Book.class), params);
         } catch (Exception e) {
