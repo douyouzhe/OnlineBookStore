@@ -164,14 +164,7 @@ public class BusinessServiceImpl implements BusinessService {
             {
                 int euclideanDistance = 0;
                 orderAmount = getInfoMatrix(ls, oibc.getId());
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 0c9af94b9389b6533d5dc8e6415a35daddb37617
-=======
-
->>>>>>> 0c9af94b9389b6533d5dc8e6415a35daddb37617
                 for (int i = 0; i < 10; i++) {
                     int tmp = (orderAmount[i] - orderAmountUser[i]) * (orderAmount[i] - orderAmountUser[i]);
                     euclideanDistance += tmp;
@@ -183,11 +176,7 @@ public class BusinessServiceImpl implements BusinessService {
                 }
             }
         }
-<<<<<<< HEAD
-        System.out.println(mostSimilarUser);
-=======
-        //System.out.println(mostSimilarUser);
->>>>>>> 834311f42e125af24c8266476caeaa013dcaa8e8
+
         return mostSimilarUser;
     }
     public List<Book> Recommend(String userId)
