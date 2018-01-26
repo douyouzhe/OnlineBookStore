@@ -22,7 +22,7 @@
 
     <div style="text-align:center">
         <c:if test="${user == null }">
-            You are not logged in!&nbsp&<nbsp>  </nbsp>
+            You are not logged in!&nbsp&
             <a href="${pageContext.request.contextPath}/index.jsp"> <img  src="${pageContext.request.contextPath }/icons/profile.png" width=20>  login</a>
         </c:if>
     <img  src="${pageContext.request.contextPath }/icons/message.png" width=200>
