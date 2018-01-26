@@ -57,7 +57,7 @@ public class BookDaoImpl implements BookDao {
     public List<Book> getPageData(int startindex, int pagesize){
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "select * from book limit ?,?";
+            String sql = "select * from book ORDER BY sales DESC limit ?,?";
             Object params[] = {startindex, pagesize};
             return (List<Book>)runner.query(sql, new BeanListHandler(Book.class), params);
         } catch (Exception e) {
@@ -69,7 +69,7 @@ public class BookDaoImpl implements BookDao {
     public int getTotalRecord(){
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "select count(*) from book";
+            String sql = "select count(*) from book ORDER BY sales DESC";
             long totalRecord = (Long)runner.query(sql, new ScalarHandler());
             return (int)totalRecord;
         } catch (Exception e) {
@@ -83,7 +83,7 @@ public class BookDaoImpl implements BookDao {
         try {
             startindex--;
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "select * from book where category_id=? limit ?,?";
+            String sql = "select * from book where category_id=? ORDER BY sales DESC limit ?,?";
             Object params[] = {category_id, startindex,pagesize};
 
             List list=(List<Book>)runner.query(sql, new BeanListHandler(Book.class), params);
@@ -98,7 +98,7 @@ public class BookDaoImpl implements BookDao {
     public int getTotalRecord(String category_id){
         try {
             QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
-            String sql = "select count(*) from book where category_id=?";
+            String sql = "select count(*) from book where category_id=? ORDER BY sales DESC";
             long totalRecord = (Long)runner.query(sql, new ScalarHandler(), category_id);
             return (int)totalRecord;
         } catch (Exception e) {

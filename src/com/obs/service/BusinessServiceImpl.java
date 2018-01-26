@@ -176,7 +176,7 @@ public class BusinessServiceImpl implements BusinessService {
                 }
             }
         }
-        //System.out.println(mostSimilarUser);
+
         return mostSimilarUser;
     }
     public List<Book> Recommend(String userId)

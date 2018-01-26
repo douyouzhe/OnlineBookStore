@@ -118,6 +118,12 @@
             background-color:black;
             color:white
         }
+        h3
+        {
+            color:white;
+            font-size:22px;
+            font-family:'Fantasy';
+        }
         p2
         {
             color:#1296db;
@@ -169,7 +175,7 @@
 
 </div>
 
-<div id="body" style="text-align:center;background-color:black;color:white;width:100%;height:1000px">
+<div id="body" style="text-align:center;background-color:black;color:white;width:100%;height:1500">
     <div id="content" style="margin:0;width:100%">
         <div id="Categories" style="float:left;padding-left:50px; width:300px;background-color:black; color:white; font-family: Fantasy; font-size:150%;border:0px;text-align:left;height:100%;">
             <h2><img src="${pageContext.request.contextPath }/icons/categories.png" width="35" height="35" class="left">  Categories:</h2>
@@ -185,10 +191,13 @@
             </ul>
         </div>
     </div>
+<%--all book--%>
+
     <div id="bookList">
     <c:if test="${showType=='category'}">
 
         <div>
+            <h3>Best sellers</h3>
         <ul>
             <c:forEach var="thisBook" items="${page.list}">
                 <li style="list-style-type:none;">
@@ -208,7 +217,7 @@
         </ul>
         </div>
 
-        <div id="page" style="margin-top:20px; text-align:center;">
+        <div id="page" style="margin-top:20px; text-align:center; color:white">
            current page: &nbsp;[${page.curPage }]&nbsp;
             <c:forEach var="curPage" begin="${page.startpage }" end="${page.endpage }">
                 <a href="${pageContext.request.contextPath }/index?method=${param.method }&curPage=${curPage}&category_id=${param.category_id}">${curPage }</a>
@@ -234,10 +243,37 @@
     </table>
 </c:if>
     </div>
+<%--recommended book--%>
+<c:if test="${recommend=='show'}">
+    <div id="recommended book">
+
+            <h3>Here are books recommended for you!</h3>
+            <ul>
+                <c:forEach var="thisBook" items="${recommendedBook}">
+                    <li style="list-style-type:none;">
+                        <table border= "1 " width="60%" rules="none" align="center">
+
+                            <td width="40%"><image src="${pageContext.request.contextPath}${thisBook.image}" width="230" height="270" class="post-thumb"></image> </td>
+                            <td width="30%">><a  href="${pageContext.request.contextPath }/book?thisBookID=${thisBook.id}">${thisBook.name}</a> <br> $${thisBook.price}</td>
+
+
+                            <td width="30%">
+                                &nbsp;<a href="${pageContext.request.contextPath }/addToCart?bookId=${thisBook.id}" style="color:black; "> <img src="${pageContext.request.contextPath }/icons/addToCartW.png" height="30"> <p2>add to cart &nbsp </p2><p5>(${thisBook.storage}left)</p5></a>
+                            </td>
+
+                        </table>
+                    </li>
+                </c:forEach>
+            </ul>
+
+    </div>
+
+</c:if>
+<%--bottom bar--%>
     <img src="${pageContext.request.contextPath }/icons/dividingLine.png" width=100% height="80" class="center" >
     <p4>Prices and offers are subject to change.</p4><br>
     <p4>Conditions of UsePrivacy NoticeInterest-Based Ads© 1996-2019, C&D.com, Inc. or its affiliates</p4>
-</div>
 
+</div>
 </body>
 </html>
