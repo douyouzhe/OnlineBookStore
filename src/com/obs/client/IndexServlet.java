@@ -26,58 +26,79 @@ public class IndexServlet extends HttpServlet {
             request.setAttribute("message", msg);
             request.getRequestDispatcher("/message.jsp").forward(request, response);
         }
-        String method=request.getParameter("method");
+        else
+        {
+            String method=request.getParameter("method");
 
-        if(method.equalsIgnoreCase("getAll"))
-        {
-            getAll(request,response);
-        }else if(method.equalsIgnoreCase("listBookOfThisCategory"))
-        {
-            listBookOfThisCategory(request,response);
+            if(method.equalsIgnoreCase("getAll"))
+            {
+                getAll(request,response);
+            }else if(method.equalsIgnoreCase("listBookOfThisCategory"))
+            {
+                listBookOfThisCategory(request,response);
+            }
+
         }
+
     }
     public void doPost(HttpServletRequest request,HttpServletResponse response)
             throws ServletException,IOException
     {
-
-        String method=request.getParameter("method");
-
-        if(method.equalsIgnoreCase("getAll"))
+        User user = (User) request.getSession().getAttribute("user");
+        if(user==null)
         {
-            getAll(request,response);
-        }else if(method.equalsIgnoreCase("listBookOfThisCategory"))
+            String msg = "Sorry, you need to log in first";
+            request.setAttribute("message", msg);
+            request.getRequestDispatcher("/message.jsp").forward(request, response);
+        }else
         {
-            listBookOfThisCategory(request,response);
+            String method=request.getParameter("method");
+
+            if(method.equalsIgnoreCase("getAll"))
+            {
+                getAll(request,response);
+            }else if(method.equalsIgnoreCase("listBookOfThisCategory"))
+            {
+                listBookOfThisCategory(request,response);
+            }
         }
+
 
     }
     private void getAll(HttpServletRequest request,HttpServletResponse response)
             throws ServletException,IOException
     {
-
-        BusinessServiceImpl service=new BusinessServiceImpl();
-        List<Category> categories=service.getAllCategory();
-        User user=(User)request.getSession().getAttribute("user");
-
-        List<Book> recommendedBook = service.Recommend(user.getId());
-
-        if (recommendedBook.size()!=0) {
-
-            request.setAttribute("recommendedBook", recommendedBook);
-            System.out.println("recommend");
-            System.out.println(recommendedBook.get(0).getName());
-            request.setAttribute("recommend","show");
+        User user = (User) request.getSession().getAttribute("user");
+        if(user==null)
+        {
+            String msg = "Sorry, you need to log in first";
+            request.setAttribute("message", msg);
+            request.getRequestDispatcher("/message.jsp").forward(request, response);
         }
+        else {
+            BusinessServiceImpl service = new BusinessServiceImpl();
+            List<Category> categories = service.getAllCategory();
 
 
+            List<Book> recommendedBook = service.Recommend(user.getId());
 
-        request.setAttribute("categories",categories);
-        request.setAttribute("showType", "category");
-        String curPage=request.getParameter("curPage");
-        Page page=service.getBookPageData(curPage);
+            if (recommendedBook.size() != 0) {
 
-        request.setAttribute("page",page);
-        request.getRequestDispatcher("/client/head.jsp").forward(request,response);
+                request.setAttribute("recommendedBook", recommendedBook);
+                System.out.println("recommend");
+                System.out.println(recommendedBook.get(0).getName());
+                request.setAttribute("recommend", "show");
+            }
+
+
+            request.setAttribute("categories", categories);
+            request.setAttribute("showType", "category");
+            String curPage = request.getParameter("curPage");
+            Page page = service.getBookPageData(curPage);
+
+            request.setAttribute("page", page);
+            request.getRequestDispatcher("/client/head.jsp").forward(request, response);
+        }
     }
 
     private void listBookOfThisCategory(HttpServletRequest request,HttpServletResponse response)
