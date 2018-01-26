@@ -12,8 +12,6 @@ import java.io.IOException;
 public class ReviewServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String bookName = req.getParameter("bookName");
-        System.out.println(bookName);
-        System.out.println(bookName);
         String orderId = req.getParameter("orderId");
         BusinessServiceImpl service = new BusinessServiceImpl();
         Book book = service.findBookByName(bookName);
