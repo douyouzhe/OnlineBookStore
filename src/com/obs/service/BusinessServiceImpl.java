@@ -164,14 +164,7 @@ public class BusinessServiceImpl implements BusinessService {
             {
                 int euclideanDistance = 0;
                 orderAmount = getInfoMatrix(ls, oibc.getId());
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
 
->>>>>>> 0c9af94b9389b6533d5dc8e6415a35daddb37617
-=======
-
->>>>>>> 0c9af94b9389b6533d5dc8e6415a35daddb37617
                 for (int i = 0; i < 10; i++) {
                     int tmp = (orderAmount[i] - orderAmountUser[i]) * (orderAmount[i] - orderAmountUser[i]);
                     euclideanDistance += tmp;
