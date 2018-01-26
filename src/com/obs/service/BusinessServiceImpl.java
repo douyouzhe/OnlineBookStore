@@ -198,9 +198,6 @@ public class BusinessServiceImpl implements BusinessService {
                 res[ls.get(i).getCategory_id()-1]=ls.get(i).getAmount();
             }
         }
-
-
-
             return res;
     }
 
@@ -208,6 +205,7 @@ public class BusinessServiceImpl implements BusinessService {
     public void submitReview(Review review) {
         reviewDao.createReview(review);
     }
+    public boolean checkReview (String bookId,String userId){ return reviewDao.checkReview(bookId,userId);};
 
     @Override
     public List<Review> getReviewsByBookId(String bookId) {

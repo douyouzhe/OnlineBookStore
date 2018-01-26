@@ -14,13 +14,23 @@ import java.io.IOException;
 
 public class ReviewServlet extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String bookName = req.getParameter("bookName");
         String orderId = req.getParameter("orderId");
+        User user = (User) req.getSession().getAttribute("user");
         BusinessServiceImpl service = new BusinessServiceImpl();
         Book book = service.findBookByName(bookName);
-        req.setAttribute("book", book);
-        req.setAttribute("orderId", orderId);
-        req.getRequestDispatcher("/client/bookReview.jsp").forward(req, resp);
+        System.out.println(service.checkReview(book.getId(),user.getId()));
+        if(service.checkReview(book.getId(),user.getId())) {
+            req.setAttribute("book", book);
+            req.setAttribute("orderId", orderId);
+            req.getRequestDispatcher("/client/bookReview.jsp").forward(req, resp);
+        }else
+        {
+            String msg = "Sorry, you have written a review for this book";
+            req.setAttribute("message", msg);
+            req.getRequestDispatcher("/message.jsp").forward(req, resp);
+        }
     }
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

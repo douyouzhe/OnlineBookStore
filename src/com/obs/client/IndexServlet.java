@@ -19,7 +19,13 @@ public class IndexServlet extends HttpServlet {
             throws ServletException,IOException
     {
 
-
+        User user = (User) request.getSession().getAttribute("user");
+        if(user==null)
+        {
+            String msg = "Sorry, you need to log in first";
+            request.setAttribute("message", msg);
+            request.getRequestDispatcher("/message.jsp").forward(request, response);
+        }
         String method=request.getParameter("method");
 
         if(method.equalsIgnoreCase("getAll"))
