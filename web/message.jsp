@@ -21,18 +21,24 @@
     <body bgcolor="black">
 
     <div style="text-align:center">
-        <c:if test="${user == null }">
-            You are not logged in!&nbsp&
-            <a href="${pageContext.request.contextPath}/index.jsp"> <img  src="${pageContext.request.contextPath }/icons/profile.png" width=20>  login</a>
-        </c:if>
+
     <img  src="${pageContext.request.contextPath }/icons/message.png" width=200>
     </div>
     <p align="center">${message}</p>
         <br>
     <div style="text-align: center">
-<       <a href="${pageContext.request.contextPath }/index?method=getAll">
+        <c:if test="${user == null }">
+            <div style ="color:white;">
+            You are not logged in!&nbsp;&nbsp;&nbsp;
+            <a href="${pageContext.request.contextPath}/index.jsp"> <img  src="${pageContext.request.contextPath }/icons/profile.png" width=20>  login</a>
+            </div>
+
+        </c:if>
+        <c:if test="${user != null }">
+       <a href="${pageContext.request.contextPath }/index?method=getAll">
             <img align="center"  src="${pageContext.request.contextPath }/icons/ContinueShopping.png" height="180">
         </a>
+        </c:if>
     </div>
     </body>
 </html>
