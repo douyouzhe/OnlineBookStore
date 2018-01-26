@@ -1,11 +1,8 @@
 package com.obs.service;
 
 import com.obs.domain.*;
-import dao.BookDao;
-import dao.CategoryDao;
+import dao.*;
 import dao.Impl.UserDaoImpl;
-import dao.OrderDao;
-import dao.UserDao;
 import utils.DaoFactory;
 import utils.WebUtils;
 
@@ -18,6 +15,7 @@ public class BusinessServiceImpl implements BusinessService {
     private BookDao bookDao = DaoFactory.getInstance().createDao("dao.Impl.BookDaoImpl", BookDao.class);
     private UserDao userDao = DaoFactory.getInstance().createDao("dao.Impl.UserDaoImpl", UserDao.class);
     private OrderDao orderDao = DaoFactory.getInstance().createDao("dao.Impl.OrderDaoImpl", OrderDao.class);
+    private ReviewDao reviewDao = DaoFactory.getInstance().createDao("dao.Impl.ReviewDaoImpl", ReviewDao.class);
 
     public void addCategory(Category category) {
             categoryDao.add(category);
@@ -162,21 +160,26 @@ public class BusinessServiceImpl implements BusinessService {
 
         List<User> userList=userDao.findAllUsers();
         for(User oibc: userList){
-            if(oibc.getId()!=userId)
+            if(!oibc.getId().equals(userId))
             {
                 int euclideanDistance = 0;
                 orderAmount = getInfoMatrix(ls, oibc.getId());
-                System.out.println(ls.toString());
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0c9af94b9389b6533d5dc8e6415a35daddb37617
                 for (int i = 0; i < 10; i++) {
                     int tmp = (orderAmount[i] - orderAmountUser[i]) * (orderAmount[i] - orderAmountUser[i]);
                     euclideanDistance += tmp;
                 }
+                //System.out.println(euclideanDistance);
                 if (euclideanDistance < maxMatchScore) {
                     maxMatchScore = euclideanDistance;
                     mostSimilarUser = oibc.getId();
                 }
             }
         }
+        //System.out.println(mostSimilarUser);
         return mostSimilarUser;
     }
     public List<Book> Recommend(String userId)
@@ -193,15 +196,24 @@ public class BusinessServiceImpl implements BusinessService {
         int[] res=new int[10];
         for(int i=0;i<ls.size();i++)
         {
-            if(ls.get(i).getUser_id()==userId)
+            if(ls.get(i).getUser_id().equals(userId))
             {
-            res[ls.get(i).getCategory_id()-1]=ls.get(i).getAmount();
+                res[ls.get(i).getCategory_id()-1]=ls.get(i).getAmount();
+            }
         }
-        }
+
+
 
             return res;
     }
 
+    @Override
+    public void submitReview(Review review) {
+        reviewDao.createReview(review);
+    }
 
-
+    @Override
+    public List<Review> getReviewsByBookId(String bookId) {
+        return bookDao.getReviewsByBookId(bookId);
+    }
 }

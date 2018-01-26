@@ -53,6 +53,7 @@ public class IndexServlet extends HttpServlet {
         List<Category> categories=service.getAllCategory();
         User user=(User)request.getSession().getAttribute("user");
         List<Book> bookList=service.Recommend(user.getId());
+        //System.out.println(bookList.size());
         request.setAttribute("categories",categories);
         request.setAttribute("showType", "category");
         String curPage=request.getParameter("curPage");

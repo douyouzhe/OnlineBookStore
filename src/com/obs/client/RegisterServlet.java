@@ -35,7 +35,7 @@ public class RegisterServlet extends HttpServlet{
 
             BusinessServiceImpl service = new BusinessServiceImpl();
             service.registerUser(user);
-            System.out.println(user.getEmail());
+            request.getSession().setAttribute("user",user);
             request.setAttribute("message", "registration successful!");
             request.getRequestDispatcher("/message.jsp").forward(request, response);
 

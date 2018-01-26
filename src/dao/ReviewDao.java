@@ -1,6 +1,9 @@
 package dao;
 
+import com.obs.domain.Review;
+
 public interface ReviewDao {
-     void createReview(String orderId,String review,String score);
+
+     void createReview(Review review);
 
 }

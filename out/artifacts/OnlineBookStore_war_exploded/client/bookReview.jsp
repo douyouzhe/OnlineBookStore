@@ -82,9 +82,9 @@
 <br>
 <br>
 <p1> Write your review here</p1>
-<form action="${pageContext.request.contextPath}/review" method="post" >
+<form action="${pageContext.request.contextPath}/review?book_id=${book.id}" method="post" >
 <table align="center">
-    <tr><td>Score：<select>
+    <tr><td>Score：<select name="score">
         <option value="0">0</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -96,9 +96,10 @@
     <tr colspan="2">
     <td rowspan="3"><textarea name="review" placeholder="250 characters at most"cols="50" rows="4"></textarea></td></tr>
 </table>
+    <input type="image" name="submit" src="${pageContext.request.contextPath }/icons/submit.png" height="50px" align="center" border="0" alt="Submit" />
 </form>
 
-<input type="image" name="submit" src="${pageContext.request.contextPath }/icons/submit.png" height="50px" align="center" border="0" alt="Submit" />
+
 
 
 
