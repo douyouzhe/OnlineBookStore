@@ -1,6 +1,7 @@
 package dao.Impl;
 
 import com.obs.domain.Book;
+import com.obs.domain.Review;
 import dao.BookDao;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -142,5 +143,18 @@ public class BookDaoImpl implements BookDao {
             throw new RuntimeException(e);
         }
 
+    }
+
+    @Override
+    public List<Review> getReviewsByBookId(String bookId) {
+        try {
+            QueryRunner runner = new QueryRunner(JdbcUtils.getDataSource());
+            String sql = "select * from review where book_id=?";
+            Object params[] = {bookId};
+            return (List<Review>) runner.query(sql, new BeanListHandler(Review.class), params);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 }

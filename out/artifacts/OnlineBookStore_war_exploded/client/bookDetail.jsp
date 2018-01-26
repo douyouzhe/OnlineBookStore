@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: cby
@@ -65,6 +66,34 @@
         <tr><td>Language:&nbsp &nbsp${book.language}</td></tr>
         <tr> <td>Description:&nbsp &nbsp${book.description}</td></tr>
 </table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div>
+    <ul>
+        <table border= "1 " width="60%" rules="none" align="center">
+
+            <%--<td width="20%"> ${cur.user_id} </td>--%>
+            <td width="30%"> Score </td>
+            <td width="70%"> Review</td>
+        </table>
+        <c:forEach var="cur" items="${reviews}">
+            <li style="list-style-type:none;">
+                <table border= "1 " width="60%" rules="none" align="center">
+
+                    <%--<td width="20%"> ${cur.user_id} </td>--%>
+                    <td width="30%"> ${cur.score} </td>
+                    <td width="70%">${cur.feedback}</td>
+                </table>
+            </li>
+        </c:forEach>
+    </ul>
+</div>
 
 <a href="${pageContext.request.contextPath }/addToCart?bookId=${book.id}" > <img src="${pageContext.request.contextPath }/icons/addToCartW.png" height="60px">  <p2>add to cart &nbsp </p2><p5>(${book.storage}left)</p5></a>
 &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp;

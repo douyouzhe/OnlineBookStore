@@ -33,5 +33,4 @@ public class SearchServlet extends HttpServlet {
             request.getRequestDispatcher("/message.jsp").forward(request, response);
         }
     }
-
 }

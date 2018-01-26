@@ -2,17 +2,18 @@ package com.obs.client;
 
 
 
-        import com.obs.domain.Book;
-        import com.obs.domain.Category;
-        import com.obs.domain.Page;
-        import com.obs.service.BusinessServiceImpl;
+import com.obs.domain.Book;
+import com.obs.domain.Category;
+import com.obs.domain.Page;
+import com.obs.domain.Review;
+import com.obs.service.BusinessServiceImpl;
 
-        import javax.servlet.ServletException;
-        import javax.servlet.http.HttpServlet;
-        import javax.servlet.http.HttpServletRequest;
-        import javax.servlet.http.HttpServletResponse;
-        import java.io.IOException;
-        import java.util.List;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 
 public class BookDetailServlet extends HttpServlet{
 
@@ -25,6 +26,9 @@ public class BookDetailServlet extends HttpServlet{
             String bookid=req.getParameter("thisBookID");
             BusinessServiceImpl service=new BusinessServiceImpl();
             Book book=service.findBook(bookid);
+            List<Review> ls = service.getReviewsByBookId(bookid);
+            System.out.println(ls.size());
+            req.setAttribute("reviews",ls);
             req.setAttribute("book",book);
             req.getRequestDispatcher("/client/bookDetail.jsp").forward(req,resp);
         }catch(Exception e){

@@ -52,6 +52,7 @@ public class IndexServlet extends HttpServlet {
         BusinessServiceImpl service=new BusinessServiceImpl();
         List<Category> categories=service.getAllCategory();
         User user=(User)request.getSession().getAttribute("user");
+<<<<<<< HEAD
         List<Book> recommendedBook = service.Recommend(user.getId());
 
         if (recommendedBook.size()!=0) {
@@ -61,6 +62,10 @@ public class IndexServlet extends HttpServlet {
             System.out.println(recommendedBook.get(0).getName());
             request.setAttribute("recommend","show");
         }
+=======
+        List<Book> bookList=service.Recommend(user.getId());
+        //System.out.println(bookList.size());
+>>>>>>> 834311f42e125af24c8266476caeaa013dcaa8e8
         request.setAttribute("categories",categories);
         request.setAttribute("showType", "category");
         String curPage=request.getParameter("curPage");

@@ -1,11 +1,8 @@
 package com.obs.service;
 
 import com.obs.domain.*;
-import dao.BookDao;
-import dao.CategoryDao;
+import dao.*;
 import dao.Impl.UserDaoImpl;
-import dao.OrderDao;
-import dao.UserDao;
 import utils.DaoFactory;
 import utils.WebUtils;
 
@@ -18,6 +15,7 @@ public class BusinessServiceImpl implements BusinessService {
     private BookDao bookDao = DaoFactory.getInstance().createDao("dao.Impl.BookDaoImpl", BookDao.class);
     private UserDao userDao = DaoFactory.getInstance().createDao("dao.Impl.UserDaoImpl", UserDao.class);
     private OrderDao orderDao = DaoFactory.getInstance().createDao("dao.Impl.OrderDaoImpl", OrderDao.class);
+    private ReviewDao reviewDao = DaoFactory.getInstance().createDao("dao.Impl.ReviewDaoImpl", ReviewDao.class);
 
     public void addCategory(Category category) {
             categoryDao.add(category);
@@ -166,18 +164,30 @@ public class BusinessServiceImpl implements BusinessService {
             {
                 int euclideanDistance = 0;
                 orderAmount = getInfoMatrix(ls, oibc.getId());
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 
+>>>>>>> 0c9af94b9389b6533d5dc8e6415a35daddb37617
+=======
+
+>>>>>>> 0c9af94b9389b6533d5dc8e6415a35daddb37617
                 for (int i = 0; i < 10; i++) {
                     int tmp = (orderAmount[i] - orderAmountUser[i]) * (orderAmount[i] - orderAmountUser[i]);
                     euclideanDistance += tmp;
                 }
+                //System.out.println(euclideanDistance);
                 if (euclideanDistance < maxMatchScore) {
                     maxMatchScore = euclideanDistance;
                     mostSimilarUser = oibc.getId();
                 }
             }
         }
+<<<<<<< HEAD
         System.out.println(mostSimilarUser);
+=======
+        //System.out.println(mostSimilarUser);
+>>>>>>> 834311f42e125af24c8266476caeaa013dcaa8e8
         return mostSimilarUser;
     }
     public List<Book> Recommend(String userId)
@@ -200,9 +210,18 @@ public class BusinessServiceImpl implements BusinessService {
             }
         }
 
+
+
             return res;
     }
 
+    @Override
+    public void submitReview(Review review) {
+        reviewDao.createReview(review);
+    }
 
-
+    @Override
+    public List<Review> getReviewsByBookId(String bookId) {
+        return bookDao.getReviewsByBookId(bookId);
+    }
 }
